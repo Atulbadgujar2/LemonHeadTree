@@ -41,7 +41,7 @@ import {
     let headers = request.headers.set("Access-Control-Allow-Credentials", 'true')
     // .set('Access-Control-Allow-Credentials','Access-Control-Allow-Credentials')
     // .set('Access-Control-Allow-Credentials','true');
-    request = request.clone({  });
+    request = request.clone({ headers });
       return next.handle(request)
    
         .pipe(

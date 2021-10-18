@@ -38,5 +38,5 @@ e2e test development is still in progress
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ### From Developers
-Made with :heart: by [Sunil Soundarapandian](https://sdesigns.co.in/). Follow me on [Twitter](https://twitter.com/sunil_designer) to get the latest news first!
+Made with :heart: by [Atul Badgujar](https://sdesigns.co.in/). Follow me on [Twitter](https://twitter.com/Atul_designer) to get the latest news first!
 I am always happy to receive your feedback!

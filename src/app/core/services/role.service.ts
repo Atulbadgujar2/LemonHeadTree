@@ -19,9 +19,9 @@ export class RoleService  extends BaseService {
 
 
   //to get User role list
-  public getUserRoleList(): Observable<Array<any>> {
+  public getUserRoleList(): Observable<any> {
       const url: string = environment.ServiceUrl;
-      return this.get<Array<any>>(url, null, 'getUserRoleList');
+      return this.get<any>(url, null, 'getUserRoleList');
   }
 
   //get User role  detail by User role id 

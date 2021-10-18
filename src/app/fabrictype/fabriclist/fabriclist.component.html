@@ -11,7 +11,7 @@
         <div class="row rowheight100p">
             <div id="kendoBusinessList" class="col-md-12 kendo-bg height100p full-height-grid">
                 <kendo-grid #grid="kendoGrid" [ngClass]="{gridloading:loadingEnabled == true}"
-                    [data]="gridData"  [loading]="loadingEnabled"
+                    [data]="gridSettings.gridData"  [loading]="loadingEnabled"
                     [sortable]="sortable" [filterable]="filterEnabled" [resizable]="true" [reorderable]="true"
                     [groupable]="groupingEnabled" (dataStateChange)="dataStateChange($event)"
                     

@@ -84,7 +84,9 @@ export class FabriclistComponent extends BaseGrid implements OnInit {
     this.userRoleService.getUserRoleList()
       .subscribe(
         response => {
-          this.gridDataList = response;
+          debugger;
+          let obj = response;
+          this.gridDataList = obj.record;
           this.getGridViewList(response);
           //this.getGridViewList(this.screenId);
          // this.getfavourite(this.screenId)
