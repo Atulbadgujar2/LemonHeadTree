@@ -22,7 +22,15 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/styles.scss"
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
+              "src/styles.scss",
+              "src/assets/css/common.scss",
+              "src/assets/css/toast.min.css"
+              
+
+             
             ],
             "scripts": []
           },
@@ -78,11 +86,15 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
               "src/styles.scss"
             ],
             "assets": [
               "src/assets",
               "src/favicon.ico"
+              
             ]
           }
         },
@@ -131,5 +143,8 @@
     "@schematics/angular:directive": {
       "prefix": "app"
     }
+  },
+  "cli": {
+    "analytics": "55951f90-905a-4741-9a15-6e7458dec901"
   }
 }

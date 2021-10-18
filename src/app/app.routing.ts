@@ -12,7 +12,7 @@ export const routes: Routes = [{
   path: '',
   component: LeftNavTemplateComponent,
   data: {
-    title: 'Angular Admin Template'
+    title:'Lemon Head Print Template'
   },
   children: [
     {
@@ -32,6 +32,13 @@ export const routes: Routes = [{
     {
       path: 'forms',
       loadChildren: () => import('./forms/forms.module').then(m => m.FormsModule),
+      data: {
+        title: 'Form Page'
+      },
+    },
+    {
+      path: 'fabrictype',
+      loadChildren: () => import('./fabrictype/fabrictype.module').then(m => m.FabrictypeModule),
       data: {
         title: 'Form Page'
       },

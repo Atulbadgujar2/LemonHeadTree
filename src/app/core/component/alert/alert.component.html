@@ -1,0 +1,26 @@
+<div class="alert">
+    <div class="example-wrapper">
+      <kendo-dialog title="Alert" class="k-dialog-wrapper mt-3 text-center" (close)="onCloseAlertModal(false)"
+        [minWidth]="250" [width]="450">
+        <!-- <h4 class="modal-title">{{modalTitle}}</h4> -->
+  
+        <div class="modal-body" *ngIf="!showJson">
+          <p>{{modalDes}}</p>
+        </div>
+        <div class="modal-body" *ngIf="showJson">
+          <pre>{{modalDes | json}}</pre>
+        </div>
+          <kendo-dialog-actions  *ngIf="modalType =='confirmation'">
+            <button type="button" class="btn btn-primary btn-sm"  kendoButton  (click)="onCloseAlertModal(true)">Confirm</button>
+            <button type="button" class="btn btn-default btn-sm" kendoButton  (click)="onCloseAlertModal(false)">Cancel</button>
+          </kendo-dialog-actions>
+  
+          <kendo-dialog-actions *ngIf="modalType !='confirmation'">
+            <button type="button" class="btn btn-primary btn-sm"  kendoButton  (click)="onCloseAlertModal(false)">OK</button>
+          </kendo-dialog-actions>
+  
+  
+      </kendo-dialog>
+    </div>
+  </div>
+  

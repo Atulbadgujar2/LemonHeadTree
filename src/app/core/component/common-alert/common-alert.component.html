@@ -1,0 +1,18 @@
+<!-- Kendo dialog Start -->
+<div class="alert">
+    <div class="example-wrapper">
+        <kendo-dialog title="Alert" (close)="onDeleteEmployeeDetails(false)" class="k-dialog-wrapper mt-3 text-center"
+            [minWidth]="250" [width]="450">
+            <p class="m-3">Are you sure you want to delete?</p>
+            <!-- form Button start -->
+            <kendo-dialog-actions >
+                <button class="k-button " (click)="onDeleteEmployeeDetails(true)">Yes</button>
+                <button class="k-button k-primary"  (click)="onDeleteEmployeeDetails(false)">No</button>
+            </kendo-dialog-actions>
+            <!-- form Button End -->
+        </kendo-dialog>
+
+
+    </div>
+</div>
+<!-- Kendo dialog End -->

@@ -1,0 +1,86 @@
+/******************************variable start****************************/
+
+$body-bg: #000;
+$body-color: #ffffff;
+
+// this variable use for font family
+$primary-font: Tahoma !important;
+
+// this variable use for sub header heading
+$sub-header-heading : 16px;
+
+// this variable use for Button
+$buttonFontSize : 14px;
+
+// this variable use for td Button 
+$tdbuttonFont : 13px;
+
+
+// this variable use for medium heading in all project
+$defaultfont14 : 14px;
+
+// this variable use for side nav and grid content
+$defaultperagraFont : 12px;
+
+
+// this variable use for side nav 
+$iconFont : 20px;
+
+// this variable use for checkbox label
+$k-checkbox-label: 14px;
+
+// this variable use grid down arrow
+$kArrowDown: 22px;
+
+// this variable use for large heading in all project
+$defaultlarge : 20px;
+
+// this variable use for extra large heading in pdf
+$defaultXlarge : 30px;
+
+// theme setting
+.light-theme {
+    --primary-color: #306294;
+    --white-color: #fff;
+    --secondary-color: #ebebeb;
+
+    // Theme 1st 
+    // --primary-color: #007bff;
+    // --white-color: #fff;
+    // --secondary-color: #e4e7eb;
+    // Theme 2nd 
+    // --primary-color: #ff5c1a;
+    // --white-color: #fff;
+    // --secondary-color: #f6f6f6;
+    // Theme 3rd 
+    // --primary-color: #744662;
+    // --white-color: #fff;
+    // --secondary-color: #e8e3d6;
+    // Theme 4th
+    // --primary-color: #6f4e37;// --white-color: #fff;
+    // --secondary-color: #eae7e5;
+}
+
+.light-blue {
+    --primary-color: #007bff;
+    --white-color: #fff;
+    --secondary-color: #e4e7eb;
+}
+
+.orange-theme {
+    --primary-color: #ff5c1a;
+    --white-color: #fff;
+    --secondary-color: #f6f6f6;
+}
+
+.purple-theme {
+    --primary-color: #744662;
+    --white-color: #fff;
+    --secondary-color: #e8e3d6;
+}
+
+.browm-theme {
+    --primary-color: #6f4e37;
+    --white-color: #fff;
+    --secondary-color: #eae7e5;
+}
