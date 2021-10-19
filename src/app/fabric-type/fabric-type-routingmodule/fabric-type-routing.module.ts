@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FabriclistComponent } from '../fabriclist/fabriclist.component';
+import { FabriclistComponent } from '../fabric-list/fabric-list.component';
 
 
 
@@ -18,4 +18,4 @@ const routes: Routes = [{
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FabrictyperoutingmoduleRoutingModule { }
+export class FabricTypeRoutingModule { }

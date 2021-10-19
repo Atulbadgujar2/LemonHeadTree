@@ -8,9 +8,9 @@ import { DataSharingService } from 'app/core/services/shared/data.sharing.servic
 import { ToastNotificationService } from 'app/core/services/toastnotification.service';
 
 @Component({
-  selector: 'app-fabricedit',
-  templateUrl: './fabricedit.component.html',
-  styleUrls: ['./fabricedit.component.scss']
+  selector: 'app-fabric-edit',
+  templateUrl: './fabric-edit.component.html',
+  styleUrls: ['./fabric-edit.component.scss']
 })
 export class FabriceditComponent implements OnInit {
 

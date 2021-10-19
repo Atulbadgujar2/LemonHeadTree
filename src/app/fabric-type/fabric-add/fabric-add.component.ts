@@ -5,9 +5,9 @@ import { RoleModel } from 'app/core/model/role/role-model';
 import { ToastNotificationService } from 'app/core/services/toastnotification.service';
 
 @Component({
-  selector: 'app-fabricadd',
-  templateUrl: './fabricadd.component.html',
-  styleUrls: ['./fabricadd.component.scss']
+  selector: 'app-fabric-add',
+  templateUrl: './fabric-add.component.html',
+  styleUrls: ['./fabric-add.component.scss']
 })
 export class FabricaddComponent implements OnInit {
 

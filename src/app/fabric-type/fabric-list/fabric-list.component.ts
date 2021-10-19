@@ -14,9 +14,9 @@ import { DataSharingService } from 'app/core/services/shared/data.sharing.servic
 import { ToastNotificationService } from 'app/core/services/toastnotification.service';
 
 @Component({
-  selector: 'app-fabriclist',
-  templateUrl: './fabriclist.component.html',
-  styleUrls: ['./fabriclist.component.scss']
+  selector: 'app-fabric-list',
+  templateUrl: './fabric-list.component.html',
+  styleUrls: ['./fabric-list.component.scss']
 })
 export class FabriclistComponent extends BaseGrid implements OnInit {
 
