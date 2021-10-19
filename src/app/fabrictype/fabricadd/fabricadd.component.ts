@@ -7,7 +7,7 @@ import { ToastNotificationService } from 'app/core/services/toastnotification.se
 @Component({
   selector: 'app-fabricadd',
   templateUrl: './fabricadd.component.html',
-  styleUrls: ['./fabricadd.component.css']
+  styleUrls: ['./fabricadd.component.scss']
 })
 export class FabricaddComponent implements OnInit {
 

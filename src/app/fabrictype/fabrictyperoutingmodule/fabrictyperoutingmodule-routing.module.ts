@@ -10,7 +10,7 @@ const routes: Routes = [{
   pathMatch: 'full',
   component: FabriclistComponent,
   data: {
-    title: 'Tables Works'
+    title: 'Fiber Type'
   }
 }];
 

@@ -10,7 +10,7 @@ import { ToastNotificationService } from 'app/core/services/toastnotification.se
 @Component({
   selector: 'app-fabricedit',
   templateUrl: './fabricedit.component.html',
-  styleUrls: ['./fabricedit.component.css']
+  styleUrls: ['./fabricedit.component.scss']
 })
 export class FabriceditComponent implements OnInit {
 

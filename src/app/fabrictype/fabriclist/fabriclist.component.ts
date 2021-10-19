@@ -16,7 +16,7 @@ import { ToastNotificationService } from 'app/core/services/toastnotification.se
 @Component({
   selector: 'app-fabriclist',
   templateUrl: './fabriclist.component.html',
-  styleUrls: ['./fabriclist.component.css']
+  styleUrls: ['./fabriclist.component.scss']
 })
 export class FabriclistComponent extends BaseGrid implements OnInit {
 
