@@ -6,8 +6,14 @@ import { FabriclistComponent } from '../fabric-list/fabric-list.component';
 
 
 const routes: Routes = [{
-  path: '',
-  pathMatch: 'full',
+  path: '',  
+  component: FabriclistComponent,
+  data: {
+    title: 'Fiber Type'
+  }
+},
+{
+  path: 'fabrictype',  
   component: FabriclistComponent,
   data: {
     title: 'Fiber Type'

@@ -1,5 +1,8 @@
 
 import {Routes, RouterModule} from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LeftNavTemplateComponent } from './template/left-nav-template.component';
+
 
 
 
@@ -37,7 +40,7 @@ import {Routes, RouterModule} from '@angular/router';
 //     },
 //     {
 //       path: 'fabrictype',
-//       loadChildren: () => import('./fabrictype/fabrictype.module').then(m => m.FabrictypeModule),
+//       loadChildren: () => import('app/fabric-type/fabric-type.module').then(m => m.FabrictypeModule),
 //       data: {
 //         title: 'Form Page'
 //       },

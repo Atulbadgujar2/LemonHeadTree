@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LeftNavTemplateComponent } from 'app/template/left-nav-template.component';
 import { MainComponent } from './main.component';
 
 
@@ -10,7 +11,7 @@ const routes: Routes = [];
     RouterModule.forChild([
       {
         path: '',
-        component: MainComponent
+        component: LeftNavTemplateComponent
         , children: [
           { path: '', redirectTo: 'main', pathMatch: 'full',data: { preload: true } },
           { path: 'dashboard', loadChildren: () => import('app/dashboard/dashboard.module').then(m => m.DashboardModule),
