@@ -84,8 +84,7 @@ export class FabricTypeListComponent extends BaseGrid implements OnInit {
   public getDataList(): void {
     this.fabricTypeService.getFabricTypeList()
       .subscribe(
-        response => {
-          debugger;
+        response => {        
           let obj = response;
           this.gridDataList = obj.record;
           this.getGridViewList(response);
@@ -138,7 +137,7 @@ export class FabricTypeListComponent extends BaseGrid implements OnInit {
 * @param column contain selected data
 */
   getSelectedData(selection:any) {
-    debugger;
+  
     if (selection == 0) {
       return
     } else {
@@ -186,8 +185,7 @@ export class FabricTypeListComponent extends BaseGrid implements OnInit {
   }
 
   //Delete Modal open on id
-  deleteUserRole(id: string) {
-    debugger;
+  deleteUserRole(id: string) {   
     this.userRoleModalData = new RoleModel();
     this.userRoleModalData.id = id;
     this.onAlert();
