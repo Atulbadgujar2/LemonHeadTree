@@ -17,10 +17,13 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PopupModule } from '@progress/kendo-angular-popup';
 import { TranslateModule } from '@ngx-translate/core';
+import { DateTimeFormatterPipe } from 'app/core/pipes/datetimeformatter.pipe';
+import { CurrencyFormattorPipe } from 'app/core/pipes/currencyformatter.pipe';
 
 
 @NgModule({
   declarations: [FabricEditComponent, FabricListComponent, FabricAddComponent],
+  providers:[DateTimeFormatterPipe, CurrencyFormattorPipe ],
   imports: [
     CommonModule,
     FabricRoutingModule,

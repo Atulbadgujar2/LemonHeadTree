@@ -1,1 +1,128 @@
-<p>fabric-list works!</p>
+<div class="inner-wrapper  height100p">
+    <div class="container-fluid height100p">
+        <!-- Heading Start -->
+        <div class="row page-head">
+            <div class="col-md-6">
+                <h3>{{ 'FiberType' | translate }}</h3>
+            </div>
+        </div>
+        <!-- Heading Close -->
+        <!-- Grid Start -->
+        <div class="row rowheight100p">
+            <div id="kendoBusinessList" class="col-md-12 kendo-bg height100p full-height-grid">
+                <kendo-grid #grid="kendoGrid" [ngClass]="{gridloading:loadingEnabled == true}"
+                    [data]="gridSettings.gridData"  [loading]="loadingEnabled"
+                    [sortable]="sortable" [filterable]="filterEnabled" [resizable]="true" [reorderable]="true"
+                    [groupable]="groupingEnabled" (dataStateChange)="dataStateChange($event)"
+                    
+                    kendoGridSelectBy="id" [selectedKeys]="mySelection"
+                    (dblclick)="getSelectedData(mySelection)">
+
+                    <!-- Buttons Column Start -->
+                    <ng-template kendoGridToolbarTemplate>
+                        <!-- Refresh Button Start -->
+                        <button class="k-button btn-icons" kendoButton icon="refresh" title="Refresh"
+                            (click)="getDataList()"></button>
+                        <!-- Refresh Button End -->
+                        <!-- Add LoV Button Start -->
+                        <button class="k-button btn-icons" kendoButton icon="add"  (click)="onAddUserRole()">{{'Add' |
+                            translate}}</button>
+                        <!-- Add LoV Button End -->
+                        <!-- Colunm Chooser Button Start -->
+                        <div *ngIf="columnMenuEnabled" class="k-button custom-column-chooser">
+                            {{'Column' | translate}}
+                            <kendo-grid-column-chooser [allowHideAll]="false"></kendo-grid-column-chooser>
+                        </div>
+                        <!-- Colunm Chooser Button End -->
+                        <!-- Grouping Button Start -->
+                        <button kendoButton (click)="changeGroupAbleStaus()">{{'Grouping' | translate}}</button>
+                        <!-- Grouping Button End -->
+                        <button kendoButton (click)="filtertoggle()"> {{'Filter' | translate}}
+                        </button>
+                        <!-- GRID VIEW SETTINGS FLYOUT -->
+                        <!--<app-grid-view *ngIf="!mobileViewEnabled" [grid]="grid" [screenId]="screenId"
+                            [gridViewList]="gridViewList" [gridViewName]="gridViewName" [gridSettings]="gridSettings"
+                            [radioSelected]="radioSelected" (loadGridView)="loadGridView($event)"></app-grid-view>-->
+                        <!-- GRID VIEW SETTINGS FLYOUT -->
+
+
+                        <!-- Excel Pdf Button Start  -->
+                       <!-- <div class="grid-action-buttons expdf">
+                            <app-common-favourite 
+                                [screenId]="screenId" [favouriteActive]="favouriteActive">
+                            </app-common-favourite>
+                            <button class="k-button btn-icons" 
+                                kendoButton (click)="exportToExcel(grid)" title="Export to Excel">
+                                <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                            </button>
+                            <button class="k-button btn-icons" 
+                                kendoButton title="Export to PDF" (click)="exportToPDF(grid)">
+                                <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                            </button>
+                        </div>-->
+                        <!-- Excel Pdf Button End  -->
+                    </ng-template>
+                    <!-- Buttons Column End -->
+                    <!-- Desktop Column Start-->
+                    <!--<kendo-grid-column *ngFor="let col of gridSettings.columnsConfig" [field]="col.field"
+                        [title]="col.title" [width]="col._width" [filter]="col.type?col.type:col.filter"
+                        [filterable]="col.filterable" [hidden]="col.hidden" [format]="col.format"
+                        [class]="col.class?col.class:col.cssClass" [media]="col.media">-->
+                        
+                        <kendo-grid-column  field="id"
+                        title="Id" 
+                       
+                        ></kendo-grid-column>
+                        <kendo-grid-column  field="paramCode"
+                        title="Param Code" 
+                       
+                        ></kendo-grid-column>
+                        <kendo-grid-column  field="paramDescription"
+                        title="Param Descrition" 
+                       
+                        ></kendo-grid-column>
+                        <kendo-grid-column  field="paramType"
+                        title="Param Type" 
+                       
+                        ></kendo-grid-column>
+
+                        <kendo-grid-column  field="status"
+                        title="Status" 
+                       
+                        ></kendo-grid-column>
+                        <kendo-grid-column  field="remark"
+                        title="Remark" 
+                       
+                        ></kendo-grid-column>
+                        <kendo-grid-column>
+                        <ng-template field = "Action" title="Action" kendoGridCellTemplate let-dataItem
+                            let-rowIndex="rowIndex">
+                        <button kendoGridRemoveCommand icon="edit" (click)="getSelectedData([dataItem.id])"
+                        title="Edit Data"
+                       class="mr-1"></button>
+              <button  kendoGridRemoveCommand
+                        icon="delete" (click)="deleteUserRole(dataItem.id)" ></button>
+                    </ng-template>
+                </kendo-grid-column>
+                    <!--</kendo-grid-column>-->
+                    <!--/ Desktop Column End -->
+                    <!-- EXPORT EXCEL AND PDF COMPONENT -->
+                 <!--   <app-grid-export [exportData]="exportData"></app-grid-export>-->
+                    <!-- EXPORT EXCEL AND PDF COMPONENT-->
+                </kendo-grid>
+            </div>
+        </div>
+    </div>
+    <!-- Grid End -->
+</div>
+<!-- User Role linking Add selectors Start -->
+<app-fabric-add *ngIf="openAddUserRoleModal" (closeAddUserRoleModal)='closeAddUserRoleModal($event)'></app-fabric-add>
+<!-- User Role linking Add selectors End -->
+<!-- User Role linking Edit selectors Start -->
+<app-fabric-edit *ngIf="openEditUserRoleModal" (closeEditUserRoleModal)='closeEditUserRoleModal($event)'></app-fabric-edit>
+<!-- User Role linking Edit selectors End -->
+
+<!-- Delete User Role linking selectors Start -->
+<app-common-alert *ngIf="openDelUserRole" (closeAlertModal)='closeAlertModal($event)'>
+</app-common-alert>
+<!-- Delete User Role linking selectors End -->
