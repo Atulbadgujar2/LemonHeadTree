@@ -18,10 +18,10 @@ export class SupplierService extends BaseService {
   }
 
 
-  //to get User role list
-  public getFabricTypeList(): Observable<any> {
-      const url: string = environment.ServiceUrl + 'statparam';
-      return this.get<any>(url, null, 'getFabricTypeList');
+  //to get Supplier list
+  public getSupplierList(): Observable<any> {
+      const url: string = environment.ServiceUrl + 'supplier';
+      return this.get<any>(url, null, 'getSupplierList');
   }
 
   //get User role  detail by User role id 

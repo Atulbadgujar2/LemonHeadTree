@@ -4,12 +4,14 @@ import { BaseGrid } from 'app/core/component/basegrid';
 import { NotificationAction, ScreenConstants } from 'app/core/constans/constants';
 import { ModalCssConstants } from 'app/core/constans/css.constants';
 import { RoleModel } from 'app/core/model/role/role-model';
+import { SupplierModel } from 'app/core/model/supplier/supplier-model';
 import { CurrencyFormattorPipe } from 'app/core/pipes/currencyformatter.pipe';
 import { DateTimeFormatterPipe } from 'app/core/pipes/datetimeformatter.pipe';
 import { AlertService } from 'app/core/services/alert.service';
 import { FabricTypeService } from 'app/core/services/fabric-type/fabric-type-service';
 import { FavouriteService } from 'app/core/services/favourite/favourite.service';
 import { DataSharingService } from 'app/core/services/shared/data.sharing.service';
+import { SupplierService } from 'app/core/services/supplier/supplier.service';
 import { ToastNotificationService } from 'app/core/services/toastnotification.service';
 
 @Component({
@@ -36,7 +38,7 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
   //Modal to open delete
   public openDelUserRole = false;
 
-  public userRoleModalData: RoleModel = new RoleModel();
+  public supplierModalData: SupplierModel = new SupplierModel();
 
   // to get data base grid property
   public gridDataList;
@@ -55,7 +57,7 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
 
   constructor(private renderer2: Renderer2, public alertService: AlertService,
     private toastNotificationService: ToastNotificationService, public datePipe: DateTimeFormatterPipe,
-    public currencyPipe: CurrencyFormattorPipe, public fabricTypeService: FabricTypeService, private router: Router, private dataSharingService: DataSharingService
+    public currencyPipe: CurrencyFormattorPipe, public supplierService: SupplierService, private router: Router, private dataSharingService: DataSharingService
     , public favouriteService: FavouriteService) {
       super(alertService, datePipe, currencyPipe, favouriteService);
    
@@ -82,7 +84,7 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
 
   // to get data from api
   public getDataList(): void {
-    this.fabricTypeService.getFabricTypeList()
+    this.supplierService.getSupplierList()
       .subscribe(
         response => {
           debugger;
@@ -186,10 +188,10 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
   }
 
   //Delete Modal open on id
-  deleteUserRole(id: string) {
+  deleteUserRole(id) {
     debugger;
-    this.userRoleModalData = new RoleModel();
-    this.userRoleModalData.id = id;
+    this.supplierModalData = new SupplierModel();
+    this.supplierModalData.id = id;
     this.onAlert();
   }
   //Close del Modal
@@ -205,12 +207,12 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
     // }    
       if (flag.confirmStatus == true) {
    
-      if(this.userRoleModalData.id){
+      if(this.supplierModalData.id){
         // const indexes = this.gridSettings.gridData.findIndex(element => element.id === this.userRoleModalData.id)
         // this.gridSettings.gridData.splice(indexes,1) 
 
         // var json = JSON.stringify(this.gridSettings.gridData);
-          const indexes = this.gridData.findIndex(element => element.id === this.userRoleModalData.id)
+          const indexes = this.gridData.findIndex(element => element.id === this.supplierModalData.id)
         this.gridData.splice(indexes,1) 
         let softjson = JSON.stringify(this.gridData);
         localStorage.setItem('hardcoded',softjson);
