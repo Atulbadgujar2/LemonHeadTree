@@ -11,7 +11,7 @@ const routes: Routes = [{
   }
 },
 {
-  path: 'fabriccomposition',  
+  path: 'fibercomposition',  
   component: FiberCompositionListComponent,
   data: {
     title: 'Fiber Composition'

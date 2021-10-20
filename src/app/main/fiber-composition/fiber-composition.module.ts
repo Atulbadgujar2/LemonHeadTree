@@ -18,10 +18,12 @@ import { PopupModule } from '@progress/kendo-angular-popup';
 import { TranslateModule } from '@ngx-translate/core';
 import { DateTimeFormatterPipe } from 'app/core/pipes/datetimeformatter.pipe';
 import { CurrencyFormattorPipe } from 'app/core/pipes/currencyformatter.pipe';
+import { FiberCompositionListComponent } from './fiber-composition-list/fiber-composition-list.component';
+import { FiberCompositionAddComponent } from './fiber-composition-add/fiber-composition-add.component';
 
 
 @NgModule({
-  declarations: [FiberCompositionEditComponent, FiberCompositionEditComponent, FiberCompositionEditComponent],
+  declarations: [FiberCompositionEditComponent, FiberCompositionListComponent, FiberCompositionAddComponent],
   providers:[DateTimeFormatterPipe, CurrencyFormattorPipe ],
   imports: [
     CommonModule,

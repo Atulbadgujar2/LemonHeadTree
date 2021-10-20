@@ -1,6 +1,6 @@
 {
     
-    "FabricType": "Fabric Type",
+    "FiberType": "Fiber Type",
     "Add": "Add",
     "Column":"Column",
     "Refresh":"Refresh",
@@ -8,7 +8,7 @@
     "Filter":"Filter",
     "Supplier":"Supplier",
     "Fabric": "Fabric",
-    "FabricComposition": "Fabric Composition"
+    "FiberComposition": "Fiber Composition"
     
     
 }
