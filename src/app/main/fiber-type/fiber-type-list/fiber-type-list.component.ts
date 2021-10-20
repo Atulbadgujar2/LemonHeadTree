@@ -166,6 +166,7 @@ export class FiberTypeListComponent extends BaseGrid implements OnInit {
 
   // function to close Edit  modal
   closeEditFiberTypeModal( data: any) {
+    debugger;
     // this.openEditFiberTypeModal = obj.flag;
 
     const indexes = this.gridData.findIndex(element => element.id === data.data.id)

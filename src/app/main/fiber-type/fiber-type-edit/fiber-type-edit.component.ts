@@ -17,7 +17,7 @@ export class FiberTypeEditComponent implements OnInit {
  //for modals button
  public actionsLayout = 'normal';
 
- @Output() closeEditfiberTypeModal = new EventEmitter();
+ @Output() closeEditFiberTypeModal = new EventEmitter();
 
  //Input Param use to get value from  list grid component.
  @Input() onfiberTypeId?: string;
@@ -126,8 +126,9 @@ export class FiberTypeEditComponent implements OnInit {
  // get formProperty end...
  // close edit modal 
  public onCloseFiberType(refreshList: boolean) {
-   let obj = { "flag": false, "data":  this.fiberTypes.value };
-   this.closeEditfiberTypeModal.emit(obj);
+   debugger;
+   let obj = { "flag": refreshList, "data":  this.fiberTypes.value };
+   this.closeEditFiberTypeModal.emit(obj);
  }
 
 }
