@@ -8,6 +8,7 @@ import { RoleModel } from 'app/core/model/role/role-model';
 import { CurrencyFormattorPipe } from 'app/core/pipes/currencyformatter.pipe';
 import { DateTimeFormatterPipe } from 'app/core/pipes/datetimeformatter.pipe';
 import { AlertService } from 'app/core/services/alert.service';
+import { FabricTypeService } from 'app/core/services/fabrictype/fabric-type-service';
 import { FavouriteService } from 'app/core/services/favourite/favourite.service';
 import { RoleService } from 'app/core/services/role.service';
 import { DataSharingService } from 'app/core/services/shared/data.sharing.service';
@@ -54,7 +55,7 @@ export class FabriclistComponent extends BaseGrid implements OnInit {
 
   constructor(private renderer2: Renderer2, public alertService: AlertService,
     private toastNotificationService: ToastNotificationService, public datePipe: DateTimeFormatterPipe,
-    public currencyPipe: CurrencyFormattorPipe, public userRoleService: RoleService, private router: Router, private dataSharingService: DataSharingService
+    public currencyPipe: CurrencyFormattorPipe, public fabricTypeService: FabricTypeService, private router: Router, private dataSharingService: DataSharingService
     , public favouriteService: FavouriteService) {
       super(alertService, datePipe, currencyPipe, favouriteService);
    
@@ -81,7 +82,7 @@ export class FabriclistComponent extends BaseGrid implements OnInit {
 
   // to get data from api
   public getDataList(): void {
-    this.userRoleService.getUserRoleList()
+    this.fabricTypeService.getFabricTypeList()
       .subscribe(
         response => {
           debugger;
