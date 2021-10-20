@@ -4,6 +4,7 @@ import { BaseGrid } from 'app/core/component/basegrid';
 import { NotificationAction, ScreenConstants } from 'app/core/constans/constants';
 import { ModalCssConstants } from 'app/core/constans/css.constants';
 import { hardcoded } from 'app/core/constans/hardcoded';
+import { FabricTypeModel } from 'app/core/model/fabric-type/fabric-type-model';
 import { RoleModel } from 'app/core/model/role/role-model';
 import { CurrencyFormattorPipe } from 'app/core/pipes/currencyformatter.pipe';
 import { DateTimeFormatterPipe } from 'app/core/pipes/datetimeformatter.pipe';
@@ -29,14 +30,14 @@ export class FabricTypeListComponent extends BaseGrid implements OnInit {
   
 
   //Modal to open Add User role
-  public openAddUserRoleModal = false;
+  public openAddFiberTypeModal = false;
   //Modal to open Edit User role
-  public openEditUserRoleModal = false;
-  public userRole?: number;
+  public openEditFiberTypeModal = false;
+  public FiberType?: number;
   //Modal to open delete
-  public openDelUserRole = false;
+  public openDelFiberType = false;
 
-  public userRoleModalData: RoleModel = new RoleModel();
+  public fabricTypeModalData: FabricTypeModel = new FabricTypeModel();
 
   // to get data base grid property
   public gridDataList;
@@ -64,13 +65,13 @@ export class FabricTypeListComponent extends BaseGrid implements OnInit {
     this.getDataList();
     super.initGrid();
     //for screen View
-    this.screenId = ScreenConstants.UserRole;
+    this.screenId = ScreenConstants.FiberType;
     // for grouping toggle 
     this.groupingEnabled = false
     // for filter toggle
     this.filterEnabled = false
     //set PDF/Excel export information
-    this.setExportData({ "pageName": ScreenConstants.UserRole });
+    this.setExportData({ "pageName": ScreenConstants.FiberType });
   }
   filtertoggle() {
     this.filterEnabled = !this.filterEnabled
@@ -114,8 +115,8 @@ export class FabricTypeListComponent extends BaseGrid implements OnInit {
   }
 
   // function to open add  modal
-  onAddUserRole() {
-    this.openAddUserRoleModal = true;
+  onAddFiberType() {
+    this.openAddFiberTypeModal = true;
     // this.renderer2.addClass(document.body, ModalCssConstants.ModalOpen);
   }
   // function to close add  modal
@@ -126,7 +127,7 @@ export class FabricTypeListComponent extends BaseGrid implements OnInit {
     this.gridData.push(data.data);
     let valueJson = JSON.stringify(this.gridData); 
     localStorage.setItem('hardcoded',valueJson)
-    this.openAddUserRoleModal = false;
+    this.openAddFiberTypeModal = false;
   }
 
  
@@ -152,7 +153,7 @@ export class FabricTypeListComponent extends BaseGrid implements OnInit {
         this.router.navigateByUrl('main/sm/role');
       }
       else {
-        this.openEditUserRoleModal = true;
+        this.openEditFiberTypeModal = true;
       }
     }
   }
@@ -160,7 +161,7 @@ export class FabricTypeListComponent extends BaseGrid implements OnInit {
 
   // function to close Edit  modal
   closeEditFiberTypeModal( data: any) {
-    // this.openEditUserRoleModal = obj.flag;
+    // this.openEditFiberTypeModal = obj.flag;
 
     const indexes = this.gridData.findIndex(element => element.id === data.data.id)
     // this.gridDataList[indexes] = data.data;
@@ -170,7 +171,7 @@ export class FabricTypeListComponent extends BaseGrid implements OnInit {
      localStorage.setItem('hardcoded',valueJson)
     // this.gridSettings.gridData = this.gridDataList;
     // this.gridDataList.push(data.data);
-     this.openEditUserRoleModal = false;
+     this.openEditFiberTypeModal = false;
     // if (obj.data) {
     //   this.getDataList();
     // }
@@ -180,21 +181,21 @@ export class FabricTypeListComponent extends BaseGrid implements OnInit {
 
   //Open del Modal
   onAlert() {
-    this.openDelUserRole = true;
+    this.openDelFiberType = true;
     this.renderer2.addClass(document.body, ModalCssConstants.ModalOpen);
   }
 
   //Delete Modal open on id
-  deleteUserRole(id: string) {   
-    this.userRoleModalData = new RoleModel();
-    this.userRoleModalData.id = id;
+  deleteFiberType(id) {   
+    this.fabricTypeModalData = new FabricTypeModel();
+    this.fabricTypeModalData.id = id;
     this.onAlert();
   }
   //Close del Modal
   closeAlertModal(flag: { confirmStatus: boolean; modalFlag: boolean; }) {
     // if (flag.confirmStatus == true) {
-    //   if(this.userRoleModalData.id)
-    //   this.userRoleService.deleteUserRole(this.userRoleModalData.id).subscribe(
+    //   if(this.FiberTypeModalData.id)
+    //   this.FiberTypeService.deleteFiberType(this.FiberTypeModalData.id).subscribe(
     //     res => {
     //       this.getDataList();
     //       this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
@@ -203,12 +204,12 @@ export class FabricTypeListComponent extends BaseGrid implements OnInit {
     // }    
       if (flag.confirmStatus == true) {
    
-      if(this.userRoleModalData.id){
-        // const indexes = this.gridSettings.gridData.findIndex(element => element.id === this.userRoleModalData.id)
+      if(this.fabricTypeModalData.id){
+        // const indexes = this.gridSettings.gridData.findIndex(element => element.id === this.FiberTypeModalData.id)
         // this.gridSettings.gridData.splice(indexes,1) 
 
         // var json = JSON.stringify(this.gridSettings.gridData);
-          const indexes = this.gridData.findIndex(element => element.id === this.userRoleModalData.id)
+          const indexes = this.gridData.findIndex(element => element.id === this.fabricTypeModalData.id)
         this.gridData.splice(indexes,1) 
         let softjson = JSON.stringify(this.gridData);
         localStorage.setItem('hardcoded',softjson);
@@ -217,14 +218,14 @@ export class FabricTypeListComponent extends BaseGrid implements OnInit {
      //this.gridSettings.gridData.slice(this.gridDataList[indexes],1);
       }
     }
-      // this.userRoleService.deleteUserRole(this.userRoleModalData.id).subscribe(
+      // this.FiberTypeService.deleteFiberType(this.FiberTypeModalData.id).subscribe(
       //   res => {
       //     this.getDataList();
       //     this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
       //   }
       // )
     // }
-    this.openDelUserRole = flag.modalFlag;
+    this.openDelFiberType = flag.modalFlag;
     // this.renderer2.removeClass(document.body, ModalCssConstants.ModalOpen);
   }
 
