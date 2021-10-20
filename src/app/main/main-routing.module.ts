@@ -34,7 +34,7 @@ const routes: Routes = [];
                             },
                             {
                                     path: 'fabrictype',
-                                    loadChildren: () => import('app/fabric-type/fabric-type.module').then(m => m.FabrictypeModule),
+                                    loadChildren: () => import('app/main/fabric-type/fabric-type.module').then(m => m.FabrictypeModule),
                                     data: {
                                       title: 'Form Page'
                                     },
