@@ -1,7 +1,9 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NotificationAction } from 'app/core/constans/constants';
+import { FiberTypeModel } from 'app/core/model/fiber-type/fiber-type-model';
 import { RoleModel } from 'app/core/model/role/role-model';
+import { FiberTypeService } from 'app/core/services/fiber-type/fiber-type-service';
 import { ToastNotificationService } from 'app/core/services/toastnotification.service';
 
 @Component({
@@ -25,9 +27,10 @@ export class FiberTypeAddComponent implements OnInit {
    //form Group tittle
    fiberType: FormGroup |any;
  
-   fiberTypeModalData: RoleModel = new RoleModel();
+   fiberTypeModalData: FiberTypeModel = new FiberTypeModel();
  
-   constructor(private formBuilder: FormBuilder, private toastNotificationService: ToastNotificationService) { }
+   constructor(private formBuilder: FormBuilder, private toastNotificationService: ToastNotificationService,
+    public fabricTypeService: FiberTypeService) { }
  
    ngAfterViewInit(): void {
      if(this.name)
@@ -61,15 +64,20 @@ export class FiberTypeAddComponent implements OnInit {
      }
      const formValue = this.fiberType.value;
      this.fiberTypeModalData.id = formValue.id;
-     this.fiberTypeModalData.name = formValue.name;
-     this.fiberTypeModalData.normalizedName=formValue.normalizedName;
+     this.fiberTypeModalData.paramCode = formValue.paramCode;
+     this.fiberTypeModalData.paramDescription = formValue.paramDescription;
+     this.fiberTypeModalData.paramType = formValue.paramType;
+     this.fiberTypeModalData.status = formValue.status;
+     this.fiberTypeModalData.remark = formValue.remark;
+     
+  
      
      this.toastNotificationService.success(NotificationAction.AddedSucessfully);
-     // this.RoleService.addfiberType(this.fiberTypeModalData).subscribe(data => {
-     //   this.toastNotificationService.success(NotificationAction.AddedSucessfully);
-     //   this.onClosefiberType(true);
-     // })
-     this.onCloseFiberType(true);
+     this.fabricTypeService.addFiberType(this.fiberTypeModalData).subscribe(data => {
+       this.toastNotificationService.success(NotificationAction.AddedSucessfully);
+       this.onCloseFiberType(true);
+     })
+    //  this.onCloseFiberType(true);
    }
    /**
    *  convenience getter for easy access to form fields

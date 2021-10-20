@@ -4,7 +4,7 @@ import { BaseGrid } from 'app/core/component/basegrid';
 import { NotificationAction, ScreenConstants } from 'app/core/constans/constants';
 import { ModalCssConstants } from 'app/core/constans/css.constants';
 import { hardcoded } from 'app/core/constans/hardcoded';
-import { FabricTypeModel } from 'app/core/model/fiber-type/fiber-type-model';
+import { FiberTypeModel } from 'app/core/model/fiber-type/fiber-type-model';
 import { RoleModel } from 'app/core/model/role/role-model';
 import { CurrencyFormattorPipe } from 'app/core/pipes/currencyformatter.pipe';
 import { DateTimeFormatterPipe } from 'app/core/pipes/datetimeformatter.pipe';
@@ -37,7 +37,7 @@ export class FiberTypeListComponent extends BaseGrid implements OnInit {
   //Modal to open delete
   public openDelFiberType = false;
 
-  public fabricTypeModalData: FabricTypeModel = new FabricTypeModel();
+  public fabricTypeModalData: FiberTypeModel = new FiberTypeModel();
 
   // to get data base grid property
   public gridDataList;
@@ -83,7 +83,7 @@ export class FiberTypeListComponent extends BaseGrid implements OnInit {
 
   // to get data from api
   public getDataList(): void {
-    this.fabricTypeService.getFabricTypeList()
+    this.fabricTypeService.getFiberTypeList()
       .subscribe(
         response => {        
           let obj = response;
@@ -187,7 +187,7 @@ export class FiberTypeListComponent extends BaseGrid implements OnInit {
 
   //Delete Modal open on id
   deleteFiberType(id) {   
-    this.fabricTypeModalData = new FabricTypeModel();
+    this.fabricTypeModalData = new FiberTypeModel();
     this.fabricTypeModalData.id = id;
     this.onAlert();
   }

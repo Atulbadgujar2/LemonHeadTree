@@ -1,4 +1,4 @@
-export class FabricTypeModel {
+export class FiberTypeModel {
     public id : number;        
     public insertDate: Date;
     public insertUser: string;

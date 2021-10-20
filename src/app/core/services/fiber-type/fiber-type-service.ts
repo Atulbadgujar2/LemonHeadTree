@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FiberTypeModel } from 'app/core/model/fiber-type/fiber-type-model';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { BaseService } from '../base.services';
@@ -19,9 +20,15 @@ export class FiberTypeService  extends BaseService {
 
 
   //to get User role list
-  public getFabricTypeList(): Observable<any> {
+  public getFiberTypeList(): Observable<any> {
       const url: string = environment.ServiceUrl + 'statparam';
-      return this.get<any>(url, null, 'getFabricTypeList');
+      return this.get<any>(url, null, 'getFiberTypeList');
+  }
+
+    //To add Fiber Type details
+  public addFiberType(fiberType: FiberTypeModel): Observable<string> {
+      let url: string = environment.ServiceUrl + 'statparam'
+      return this.post<FiberTypeModel>(url, fiberType, null, "addFiberType");
   }
 
   //get User role  detail by User role id 
@@ -34,11 +41,7 @@ export class FiberTypeService  extends BaseService {
 //       let url: string = environment.ServiceUrl + 'Role/update'
 //       return this.post(url, rolemodal, null, "updateUserRoleDetails");
 //   }
-  // To add User role details
-//   public addUserRole(rolemodal: RoleModel): Observable<string> {
-//       let url: string = environment.ServiceUrl + 'Role/add'
-//       return this.post<RoleModel>(url, rolemodal, null, "addUserRole");
-//   }
+
   // Delete user role.
 //   public deleteUserRole(id: string): Observable<number> {
 //       let url: string = environment.ServiceUrl + 'Role/delete/ ' + id
