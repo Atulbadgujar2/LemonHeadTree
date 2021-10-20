@@ -83,11 +83,10 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
   }
 
   // to get data from api
-  public getDataList(): void {
+  public getDataList(): void {  
     this.supplierService.getSupplierList()
       .subscribe(
-        response => {
-          debugger;
+        response => {         
           let obj = response;
           this.gridDataList = obj.record;
           this.getGridViewList(response);
@@ -139,8 +138,7 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
 * on double click
 * @param column contain selected data
 */
-  getSelectedData(selection:any) {
-    debugger;
+  getSelectedData(selection:any) {  
     if (selection == 0) {
       return
     } else {
@@ -188,8 +186,7 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
   }
 
   //Delete Modal open on id
-  deleteUserRole(id) {
-    debugger;
+  deleteUserRole(id) {   
     this.supplierModalData = new SupplierModel();
     this.supplierModalData.id = id;
     this.onAlert();

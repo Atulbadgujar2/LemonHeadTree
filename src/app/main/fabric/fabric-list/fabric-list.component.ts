@@ -3,11 +3,13 @@ import { Router } from '@angular/router';
 import { BaseGrid } from 'app/core/component/basegrid';
 import { NotificationAction, ScreenConstants } from 'app/core/constans/constants';
 import { ModalCssConstants } from 'app/core/constans/css.constants';
+import { FabricModel } from 'app/core/model/fabric/fabric.model';
 import { RoleModel } from 'app/core/model/role/role-model';
 import { CurrencyFormattorPipe } from 'app/core/pipes/currencyformatter.pipe';
 import { DateTimeFormatterPipe } from 'app/core/pipes/datetimeformatter.pipe';
 import { AlertService } from 'app/core/services/alert.service';
 import { FabricTypeService } from 'app/core/services/fabric-type/fabric-type-service';
+import { FabricService } from 'app/core/services/fabric/fabric.service';
 import { FavouriteService } from 'app/core/services/favourite/favourite.service';
 import { DataSharingService } from 'app/core/services/shared/data.sharing.service';
 import { ToastNotificationService } from 'app/core/services/toastnotification.service';
@@ -35,7 +37,7 @@ export class FabricListComponent extends BaseGrid implements OnInit {
   //Modal to open delete
   public openDelUserRole = false;
 
-  public userRoleModalData: RoleModel = new RoleModel();
+  public fabricModalData: FabricModel = new FabricModel();
 
   // to get data base grid property
   public gridDataList;
@@ -54,7 +56,7 @@ export class FabricListComponent extends BaseGrid implements OnInit {
 
   constructor(private renderer2: Renderer2, public alertService: AlertService,
     private toastNotificationService: ToastNotificationService, public datePipe: DateTimeFormatterPipe,
-    public currencyPipe: CurrencyFormattorPipe, public fabricTypeService: FabricTypeService, private router: Router, private dataSharingService: DataSharingService
+    public currencyPipe: CurrencyFormattorPipe, public fabricService: FabricService, private router: Router, private dataSharingService: DataSharingService
     , public favouriteService: FavouriteService) {
       super(alertService, datePipe, currencyPipe, favouriteService);
    
@@ -81,10 +83,9 @@ export class FabricListComponent extends BaseGrid implements OnInit {
 
   // to get data from api
   public getDataList(): void {
-    this.fabricTypeService.getFabricTypeList()
+    this.fabricService.getFabricList()
       .subscribe(
-        response => {
-          debugger;
+        response => {        
           let obj = response;
           this.gridDataList = obj.record;
           this.getGridViewList(response);
@@ -136,8 +137,7 @@ export class FabricListComponent extends BaseGrid implements OnInit {
 * on double click
 * @param column contain selected data
 */
-  getSelectedData(selection:any) {
-    debugger;
+  getSelectedData(selection:any) {    
     if (selection == 0) {
       return
     } else {
@@ -185,10 +185,9 @@ export class FabricListComponent extends BaseGrid implements OnInit {
   }
 
   //Delete Modal open on id
-  deleteUserRole(id: string) {
-    debugger;
-    this.userRoleModalData = new RoleModel();
-    this.userRoleModalData.id = id;
+  deleteUserRole(id) {  
+    this.fabricModalData = new FabricModel();
+    this.fabricModalData.id = id;
     this.onAlert();
   }
   //Close del Modal
@@ -204,12 +203,12 @@ export class FabricListComponent extends BaseGrid implements OnInit {
     // }    
       if (flag.confirmStatus == true) {
    
-      if(this.userRoleModalData.id){
+      if(this.fabricModalData.id){
         // const indexes = this.gridSettings.gridData.findIndex(element => element.id === this.userRoleModalData.id)
         // this.gridSettings.gridData.splice(indexes,1) 
 
         // var json = JSON.stringify(this.gridSettings.gridData);
-          const indexes = this.gridData.findIndex(element => element.id === this.userRoleModalData.id)
+          const indexes = this.gridData.findIndex(element => element.id === this.fabricModalData.id)
         this.gridData.splice(indexes,1) 
         let softjson = JSON.stringify(this.gridData);
         localStorage.setItem('hardcoded',softjson);
