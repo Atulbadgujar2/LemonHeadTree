@@ -43,8 +43,7 @@ export class FiberCompositionListComponent extends BaseGrid implements OnInit {
   public gridData : any[] = [];
   
 
-  //for grid table
-  loadingEnabled = true;
+  
 
   //get Selected key index
   public mySelection: number[] = [];
@@ -82,6 +81,7 @@ export class FiberCompositionListComponent extends BaseGrid implements OnInit {
 
   // to get data from api
   public getDataList(): void {
+    this.loadingEnabled = true;
     this.fiberCompositionService.getFiberCompositionList()
       .subscribe(
         response => {
@@ -111,7 +111,7 @@ export class FiberCompositionListComponent extends BaseGrid implements OnInit {
     //    this.gridData = obj;
  
     //  }    
-     this.loadingEnabled = false
+     
   }
 
   // function to open add  modal

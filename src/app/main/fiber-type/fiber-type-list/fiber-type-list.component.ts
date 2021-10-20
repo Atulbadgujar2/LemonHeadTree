@@ -44,8 +44,7 @@ export class FiberTypeListComponent extends BaseGrid implements OnInit {
   public gridData : any[] = [];
   
 
-  //for grid table
-  loadingEnabled = true;
+  
 
   //get Selected key index
   public mySelection: number[] = [];
@@ -83,6 +82,7 @@ export class FiberTypeListComponent extends BaseGrid implements OnInit {
 
   // to get data from api
   public getDataList(): void {
+   this.loadingEnabled = true;
     this.fabricTypeService.getFiberTypeList()
       .subscribe(
         response => {        
@@ -92,7 +92,7 @@ export class FiberTypeListComponent extends BaseGrid implements OnInit {
           //this.getGridViewList(this.screenId);
          // this.getfavourite(this.screenId)
         }).add(() => {
-           this.loadingEnabled = false
+          this.loadingEnabled = false;
         })
 
     
@@ -111,7 +111,7 @@ export class FiberTypeListComponent extends BaseGrid implements OnInit {
     //    this.gridData = obj;
  
     //  }    
-     this.loadingEnabled = false
+
   }
 
   // function to open add  modal
