@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FiberTypeModel } from 'app/core/model/fiber-type/fiber-type-model';
+import { FiberTypeRequestModel } from 'app/core/model/fiber-type/fiber-type-request.model';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { BaseService } from '../base.services';
@@ -26,9 +27,9 @@ export class FiberTypeService  extends BaseService {
   }
 
     //To add Fiber Type details
-  public addFiberType(fiberType: FiberTypeModel): Observable<string> {
+  public addFiberType(fiberType: FiberTypeRequestModel): Observable<string> {
       let url: string = environment.ServiceUrl + 'statparam'
-      return this.post<FiberTypeModel>(url, fiberType, null, "addFiberType");
+      return this.post<FiberTypeRequestModel>(url, fiberType, null, "addFiberType");
   }
 
   //get User role  detail by User role id 
