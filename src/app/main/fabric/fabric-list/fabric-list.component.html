@@ -69,40 +69,25 @@
                         [filterable]="col.filterable" [hidden]="col.hidden" [format]="col.format"
                         [class]="col.class?col.class:col.cssClass" [media]="col.media">-->
                         
-                        <kendo-grid-column  field="id"
-                        title="Id" 
-                       
+                        <kendo-grid-column  field="id" title="Id">
+                        </kendo-grid-column>
+                        <kendo-grid-column  field="paramCode" title="Param Code">
+                        </kendo-grid-column>
+                        <kendo-grid-column  field="paramDescription" title="Param Descrition">                            
+                        </kendo-grid-column>
+                        <kendo-grid-column  field="paramType" title="Param Type" >                            
+                        </kendo-grid-column>
+                        <kendo-grid-column field="status" title="Status"
                         ></kendo-grid-column>
-                        <kendo-grid-column  field="paramCode"
-                        title="Param Code" 
-                       
-                        ></kendo-grid-column>
-                        <kendo-grid-column  field="paramDescription"
-                        title="Param Descrition" 
-                       
-                        ></kendo-grid-column>
-                        <kendo-grid-column  field="paramType"
-                        title="Param Type" 
-                       
-                        ></kendo-grid-column>
-
-                        <kendo-grid-column  field="status"
-                        title="Status" 
-                       
-                        ></kendo-grid-column>
-                        <kendo-grid-column  field="remark"
-                        title="Remark" 
-                       
-                        ></kendo-grid-column>
+                        <kendo-grid-column  field="remark" title="Remark">                            
+                        </kendo-grid-column>
                         <kendo-grid-column>
                         <ng-template field = "Action" title="Action" kendoGridCellTemplate let-dataItem
                             let-rowIndex="rowIndex">
                         <button kendoGridRemoveCommand icon="edit" (click)="getSelectedData([dataItem.id])"
-                        title="Edit Data"
-                       class="mr-1"></button>
-              <button  kendoGridRemoveCommand
-                        icon="delete" (click)="deleteUserRole(dataItem.id)" ></button>
-                    </ng-template>
+                        title="Edit Data" class="mr-1"></button>
+                        <button  kendoGridRemoveCommand icon="delete" (click)="deleteUserRole(dataItem.id)" ></button>
+                        </ng-template>
                 </kendo-grid-column>
                     <!--</kendo-grid-column>-->
                     <!--/ Desktop Column End -->
