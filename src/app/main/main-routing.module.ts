@@ -33,8 +33,8 @@ const routes: Routes = [];
                               },
                             },
                             {
-                                    path: 'fabrictype',
-                                    loadChildren: () => import('app/main/fabric-type/fabric-type.module').then(m => m.FabrictypeModule),
+                                    path: 'fibertype',
+                                    loadChildren: () => import('app/main/fiber-type/fiber-type.module').then(m => m.FibertypeModule),
                                     data: {
                                       title: 'Form Page'
                                     },
@@ -47,8 +47,8 @@ const routes: Routes = [];
                                     },
                                   },
                                   {
-                                    path: 'fabriccomposition',
-                                    loadChildren: () => import('app/main/fabric-composition/fabric-composition.module').then(m => m.FabricCompositionModule),
+                                    path: 'fibercomposition',
+                                    loadChildren: () => import('app/main/fiber-composition/fiber-composition.module').then(m => m.FiberCompositionModule),
                                     data: {
                                       title: 'Form Page'
                                     },

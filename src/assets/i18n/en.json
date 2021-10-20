@@ -6,7 +6,9 @@
     "Refresh":"Refresh",
     "Grouping":"Grouping",
     "Filter":"Filter",
-    "Supplier":"Supplier"
+    "Supplier":"Supplier",
+    "Fabric": "Fabric",
+    "FabricComposition": "Fabric Composition"
     
     
 }

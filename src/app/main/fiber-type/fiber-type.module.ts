@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FabricTypeListComponent } from './fabric-type-list/fabric-type-list.component';
-import { FabricTypeAddComponent } from './fabric-type-add/fabric-type-add.component';
-import { FabricTypeEditComponent } from './fabric-type-edit/fabric-type-edit.component';
-import { FabricTypeRoutingModule } from './fabric-type-routingmodule/fabric-type-routing.module';
+import { FiberTypeListComponent } from './fiber-type-list/fiber-type-list.component';
+import { FiberTypeAddComponent } from './fiber-type-add/fiber-type-add.component';
+import { FiberTypeEditComponent } from './fiber-type-edit/fiber-type-edit.component';
+import { FiberTypeRoutingModule } from './fiber-type-routingmodule/fiber-type-routing.module';
 import { ExcelModule, GridModule, PDFModule } from '@progress/kendo-angular-grid';
 import { TrnaslateLazyModule } from 'app/core/modules/translate-lazy.module';
 import { TranslateModule } from '@ngx-translate/core';
@@ -24,11 +24,11 @@ import { SharedComponentModule } from 'app/shared/shared-component/shared-compon
 
 
 @NgModule({
-  declarations: [FabricTypeListComponent, FabricTypeAddComponent, FabricTypeEditComponent],
+  declarations: [FiberTypeListComponent, FiberTypeAddComponent, FiberTypeEditComponent],
   providers:[DateTimeFormatterPipe, CurrencyFormattorPipe ],
   imports: [
     CommonModule,
-    FabricTypeRoutingModule,
+    FiberTypeRoutingModule,
     SharedComponentModule,
     GridModule,   
     DropDownListModule,
@@ -50,4 +50,4 @@ import { SharedComponentModule } from 'app/shared/shared-component/shared-compon
     TranslateModule.forChild(),
   ]
 })
-export class FabrictypeModule { }
+export class FibertypeModule { }

@@ -7,17 +7,18 @@ import { RoleModel } from 'app/core/model/role/role-model';
 import { CurrencyFormattorPipe } from 'app/core/pipes/currencyformatter.pipe';
 import { DateTimeFormatterPipe } from 'app/core/pipes/datetimeformatter.pipe';
 import { AlertService } from 'app/core/services/alert.service';
-import { FabricTypeService } from 'app/core/services/fabric-type/fabric-type-service';
+
 import { FavouriteService } from 'app/core/services/favourite/favourite.service';
+import { FiberCompositionService } from 'app/core/services/fiber-composition/fiber-composition-service';
 import { DataSharingService } from 'app/core/services/shared/data.sharing.service';
 import { ToastNotificationService } from 'app/core/services/toastnotification.service';
 
 @Component({
-  selector: 'app-fabric-composition-list',
-  templateUrl: './fabric-composition-list.component.html',
-  styleUrls: ['./fabric-composition-list.component.scss']
+  selector: 'app-fiber-composition-list',
+  templateUrl: './fiber-composition-list.component.html',
+  styleUrls: ['./fiber-composition-list.component.scss']
 })
-export class FabricCompositionListComponent extends BaseGrid implements OnInit {
+export class FiberCompositionListComponent extends BaseGrid implements OnInit {
 
  
   // constructor() { }
@@ -54,7 +55,7 @@ export class FabricCompositionListComponent extends BaseGrid implements OnInit {
 
   constructor(private renderer2: Renderer2, public alertService: AlertService,
     private toastNotificationService: ToastNotificationService, public datePipe: DateTimeFormatterPipe,
-    public currencyPipe: CurrencyFormattorPipe, public fabricTypeService: FabricTypeService, private router: Router, private dataSharingService: DataSharingService
+    public currencyPipe: CurrencyFormattorPipe, public fiberCompositionService: FiberCompositionService, private router: Router, private dataSharingService: DataSharingService
     , public favouriteService: FavouriteService) {
       super(alertService, datePipe, currencyPipe, favouriteService);
    
@@ -81,7 +82,7 @@ export class FabricCompositionListComponent extends BaseGrid implements OnInit {
 
   // to get data from api
   public getDataList(): void {
-    this.fabricTypeService.getFabricTypeList()
+    this.fiberCompositionService.getFiberCompositionList()
       .subscribe(
         response => {
           debugger;

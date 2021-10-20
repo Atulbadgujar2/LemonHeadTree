@@ -10,18 +10,18 @@ import { HttpErrorHandlerService } from '../http-error-handler.service';
 @Injectable({
   providedIn: 'root'
 })
-export class FabricTypeService  extends BaseService {
+export class FiberCompositionService  extends BaseService {
   handleError: any;
   constructor(http: HttpClient, httpErrorHandler: HttpErrorHandlerService) {
       super(http);
-      this.handleError = httpErrorHandler.createHandleError('FabricTypeService');
+      this.handleError = httpErrorHandler.createHandleError('FabricCompositionService');
   }
 
 
   //to get User role list
-  public getFabricTypeList(): Observable<any> {
-      const url: string = environment.ServiceUrl + 'statparam';
-      return this.get<any>(url, null, 'getFabricTypeList');
+  public getFiberCompositionList(): Observable<any> {
+      const url: string = environment.ServiceUrl + 'fabric';
+      return this.get<any>(url, null, 'getFiberCompositionList');
   }
 
   //get User role  detail by User role id 

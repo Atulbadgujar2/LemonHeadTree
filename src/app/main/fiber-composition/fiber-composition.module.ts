@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FabricCompositionRoutingModule } from './fabric-composition-routing.module';
-import { FabricCompositionAddComponent } from './fabric-composition-add/fabric-composition-add.component';
-import { FabricCompositionListComponent } from './fabric-composition-list/fabric-composition-list.component';
-import { FabricCompositionEditComponent } from './fabric-composition-edit/fabric-composition-edit.component';
+import { FiberCompositionRoutingModule } from './fiber-composition-routing.module';
+
+import { FiberCompositionEditComponent } from './fiber-composition-edit/fiber-composition-edit.component';
 import { SharedComponentModule } from 'app/shared/shared-component/shared-component.module';
 import { ExcelModule, GridModule, PDFModule } from '@progress/kendo-angular-grid';
 import { DropDownListModule, DropDownsModule } from '@progress/kendo-angular-dropdowns';
@@ -22,11 +21,11 @@ import { CurrencyFormattorPipe } from 'app/core/pipes/currencyformatter.pipe';
 
 
 @NgModule({
-  declarations: [FabricCompositionAddComponent, FabricCompositionListComponent, FabricCompositionEditComponent],
+  declarations: [FiberCompositionEditComponent, FiberCompositionEditComponent, FiberCompositionEditComponent],
   providers:[DateTimeFormatterPipe, CurrencyFormattorPipe ],
   imports: [
     CommonModule,
-    FabricCompositionRoutingModule,
+    FiberCompositionRoutingModule,
     SharedComponentModule,
     GridModule,   
     DropDownListModule,
@@ -48,4 +47,4 @@ import { CurrencyFormattorPipe } from 'app/core/pipes/currencyformatter.pipe';
     TranslateModule.forChild(),
   ]
 })
-export class FabricCompositionModule { }
+export class FiberCompositionModule { }

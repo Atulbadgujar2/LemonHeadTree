@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FabricTypeListComponent } from '../fabric-type-list/fabric-type-list.component';
+import { FiberTypeListComponent } from '../fiber-type-list/fiber-type-list.component';
 
 
 
 
 const routes: Routes = [{
   path: '',  
-  component: FabricTypeListComponent,
+  component: FiberTypeListComponent,
   data: {
     title: 'Fiber Type'
   }
 },
 {
   path: 'fabrictype',  
-  component: FabricTypeListComponent,
+  component: FiberTypeListComponent,
   data: {
     title: 'Fiber Type'
   }
@@ -24,4 +24,4 @@ const routes: Routes = [{
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FabricTypeRoutingModule { }
+export class FiberTypeRoutingModule { }

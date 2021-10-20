@@ -8,7 +8,7 @@ import { SupplierModel } from 'app/core/model/supplier/supplier-model';
 import { CurrencyFormattorPipe } from 'app/core/pipes/currencyformatter.pipe';
 import { DateTimeFormatterPipe } from 'app/core/pipes/datetimeformatter.pipe';
 import { AlertService } from 'app/core/services/alert.service';
-import { FabricTypeService } from 'app/core/services/fabric-type/fabric-type-service';
+import { FiberTypeService } from 'app/core/services/fiber-type/fiber-type-service';
 import { FavouriteService } from 'app/core/services/favourite/favourite.service';
 import { DataSharingService } from 'app/core/services/shared/data.sharing.service';
 import { SupplierService } from 'app/core/services/supplier/supplier.service';

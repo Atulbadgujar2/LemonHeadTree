@@ -4,23 +4,23 @@ import { BaseGrid } from 'app/core/component/basegrid';
 import { NotificationAction, ScreenConstants } from 'app/core/constans/constants';
 import { ModalCssConstants } from 'app/core/constans/css.constants';
 import { hardcoded } from 'app/core/constans/hardcoded';
-import { FabricTypeModel } from 'app/core/model/fabric-type/fabric-type-model';
+import { FabricTypeModel } from 'app/core/model/fiber-type/fiber-type-model';
 import { RoleModel } from 'app/core/model/role/role-model';
 import { CurrencyFormattorPipe } from 'app/core/pipes/currencyformatter.pipe';
 import { DateTimeFormatterPipe } from 'app/core/pipes/datetimeformatter.pipe';
 import { AlertService } from 'app/core/services/alert.service';
-import { FabricTypeService } from 'app/core/services/fabric-type/fabric-type-service';
+import { FiberTypeService } from 'app/core/services/fiber-type/fiber-type-service';
 import { FavouriteService } from 'app/core/services/favourite/favourite.service';
 import { RoleService } from 'app/core/services/role.service';
 import { DataSharingService } from 'app/core/services/shared/data.sharing.service';
 import { ToastNotificationService } from 'app/core/services/toastnotification.service';
 
 @Component({
-  selector: 'app-fabric-type-list',
-  templateUrl: './fabric-type-list.component.html',
-  styleUrls: ['./fabric-type-list.component.scss']
+  selector: 'app-fiber-type-list',
+  templateUrl: './fiber-type-list.component.html',
+  styleUrls: ['./fiber-type-list.component.scss']
 })
-export class FabricTypeListComponent extends BaseGrid implements OnInit {
+export class FiberTypeListComponent extends BaseGrid implements OnInit {
 
   // constructor() { }
 
@@ -56,7 +56,7 @@ export class FabricTypeListComponent extends BaseGrid implements OnInit {
 
   constructor(private renderer2: Renderer2, public alertService: AlertService,
     private toastNotificationService: ToastNotificationService, public datePipe: DateTimeFormatterPipe,
-    public currencyPipe: CurrencyFormattorPipe, public fabricTypeService: FabricTypeService, private router: Router, private dataSharingService: DataSharingService
+    public currencyPipe: CurrencyFormattorPipe, public fabricTypeService: FiberTypeService, private router: Router, private dataSharingService: DataSharingService
     , public favouriteService: FavouriteService) {
       super(alertService, datePipe, currencyPipe, favouriteService);
    

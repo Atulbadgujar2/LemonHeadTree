@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FabricCompositionListComponent } from './fabric-composition-list/fabric-composition-list.component';
+import { FiberCompositionListComponent } from './fiber-composition-list/fiber-composition-list.component';
 
 
 const routes: Routes = [{
   path: '',  
-  component: FabricCompositionListComponent,
+  component: FiberCompositionListComponent,
   data: {
     title: 'Fiber Composition'
   }
 },
 {
   path: 'fabriccomposition',  
-  component: FabricCompositionListComponent,
+  component: FiberCompositionListComponent,
   data: {
     title: 'Fiber Composition'
   }
@@ -22,4 +22,4 @@ const routes: Routes = [{
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FabricCompositionRoutingModule { }
+export class FiberCompositionRoutingModule { }
