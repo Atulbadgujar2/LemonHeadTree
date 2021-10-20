@@ -39,6 +39,27 @@ const routes: Routes = [];
                                       title: 'Form Page'
                                     },
                                   },
+                                  {
+                                    path: 'fabric',
+                                    loadChildren: () => import('app/main/fabric/fabric.module').then(m => m.FabricModule),
+                                    data: {
+                                      title: 'Form Page'
+                                    },
+                                  },
+                                  {
+                                    path: 'fabriccomposition',
+                                    loadChildren: () => import('app/main/fabric-composition/fabric-composition.module').then(m => m.FabricCompositionModule),
+                                    data: {
+                                      title: 'Form Page'
+                                    },
+                                  },
+                                  {
+                                    path: 'supplier',
+                                    loadChildren: () => import('app/main/supplier/supplier.module').then(m => m.SupplierModule),
+                                    data: {
+                                      title: 'Form Page'
+                                    },
+                                  },
          
 
           {
