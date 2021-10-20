@@ -13,15 +13,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { ToastrModule } from "ngx-toastr";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
-import { createTranslateLoader } from "./core/modules/translate-lazy.module";
 import { HttpClient, HttpClientJsonpModule, HttpClientModule } from "@angular/common/http";
 import { DatePipe } from "@angular/common";
 import { HttpErrorHandlerService } from "./core/services/http-error-handler.service";
 import { PreloadingstrategyService } from "./core/misc/preloadingstrategy.service";
 import { DataSharingService } from "./core/services/shared/data.sharing.service";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
 
-
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+}
 
 
 @NgModule({

@@ -38,7 +38,7 @@ import { SharedComponentModule } from 'app/shared/shared-component/shared-compon
     DatePickerModule,
     DialogsModule,   
     ButtonsModule,  
-    //TrnaslateLazyModule,
+    TrnaslateLazyModule,
     DropDownsModule,
     LabelModule,
     InputsModule,

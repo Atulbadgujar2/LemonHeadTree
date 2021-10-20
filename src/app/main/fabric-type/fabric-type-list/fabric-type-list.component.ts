@@ -160,7 +160,7 @@ export class FabricTypeListComponent extends BaseGrid implements OnInit {
   // get selected data end..
 
   // function to close Edit  modal
-  closeEditUserRoleModal( data: any) {
+  closeEditFiberTypeModal( data: any) {
     // this.openEditUserRoleModal = obj.flag;
 
     const indexes = this.gridData.findIndex(element => element.id === data.data.id)

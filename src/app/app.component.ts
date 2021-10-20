@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {Router, ActivatedRoute, NavigationEnd, Event} from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 
 declare var jQuery: any;
@@ -15,7 +16,8 @@ declare var jQuery: any;
 export class AppComponent {
   title = 'app works!';
 
-  constructor(private titleService: Title, router: Router, activatedRoute: ActivatedRoute) {
+  constructor(private titleService: Title, router: Router, activatedRoute: ActivatedRoute,private translate: TranslateService) {
+    translate.setDefaultLang('en');
     router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         const title = this.getTitle(router.routerState, router.routerState.root).join(' | ');

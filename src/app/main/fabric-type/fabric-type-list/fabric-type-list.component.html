@@ -3,7 +3,7 @@
         <!-- Heading Start -->
         <div class="row page-head">
             <div class="col-md-6">
-                <h3>{{ 'FiberType' | translate }}</h3>
+                <h3>{{ 'FabricType' | translate }}</h3>
             </div>
         </div>
         <!-- Heading Close -->
@@ -119,7 +119,7 @@
 <app-fabric-type-add *ngIf="openAddUserRoleModal" (closeAddFiberTypeModal)='closeAddUserRoleModal($event)'></app-fabric-type-add>
 <!-- User Role linking Add selectors End -->
 <!-- User Role linking Edit selectors Start -->
-<app-fabric-type-edit *ngIf="openEditUserRoleModal" (closeEditUserRoleModal)='closeEditUserRoleModal($event)'></app-fabric-type-edit>
+<app-fabric-type-edit *ngIf="openEditUserRoleModal" (closeEditFiberTypeModal)='closeEditFiberTypeModal($event)'></app-fabric-type-edit>
 <!-- User Role linking Edit selectors End -->
 
 <!-- Delete User Role linking selectors Start -->
