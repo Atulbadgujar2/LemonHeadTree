@@ -120,7 +120,7 @@ export class FabricTypeListComponent extends BaseGrid implements OnInit {
     // this.renderer2.addClass(document.body, ModalCssConstants.ModalOpen);
   }
   // function to close add  modal
-  closeAddUserRoleModal(data: any) {
+  closeAddFiberTypeModal(data: any) {
     // if (flag) {
     //   this.getDataList();
     // }

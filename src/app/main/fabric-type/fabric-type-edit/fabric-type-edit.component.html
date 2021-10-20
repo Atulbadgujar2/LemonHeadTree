@@ -1,9 +1,9 @@
 <!-- Kendo dialog start -->
 <div class="example-wrapper">
-    <kendo-dialog title="{{ 'FiberType' | translate }}" (close)="onCloseUserRole(false)" [width]="850"
+    <kendo-dialog title="{{ 'FiberType' | translate }}" (close)="onCloseFiberType(false)" [width]="850"
         class="k-dialog-wrapper">
         <!-- form body start -->
-        <form [formGroup]="userRoles">
+        <form [formGroup]="fiberTypes">
             <div class="k-loading-panel" *ngIf="loadingPanelVisible">
                 <div class="k-loading-panel-mask"></div>
                 <kendo-loader [type]="'pulsing'" [themeColor]="'primary'" [size]="'large'">
@@ -64,8 +64,8 @@
         <!-- form Button start -->
         <kendo-dialog-actions >
             <button kendoButton 
-                (click)="updateUserRoleDetails()">{{ 'Save' | translate }}</button>
-            <button kendoButton (click)="onCloseUserRole(false)"> {{ 'Cancel' | translate }} </button>
+                (click)="updateFiberTypeDetails()">{{ 'Save' | translate }}</button>
+            <button kendoButton (click)="onCloseFiberType(false)"> {{ 'Cancel' | translate }} </button>
         </kendo-dialog-actions>
         <!-- form Button End -->
     </kendo-dialog>

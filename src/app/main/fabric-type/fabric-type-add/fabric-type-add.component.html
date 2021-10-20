@@ -1,9 +1,9 @@
 <!-- Kendo dialog start -->
 <div class="example-wrapper">
-    <kendo-dialog title="{{ 'FiberType' | translate }}" (close)="onCloseUserRole(false)" [width]="850"
+    <kendo-dialog title="{{ 'FiberType' | translate }}" (close)="onCloseFiberType(false)" [width]="850"
         class="k-dialog-wrapper">
         <!-- form body start -->
-        <form [formGroup]="userRole">
+        <form [formGroup]="fiberType">
             <fieldset class="k-form-fieldset mb-2 p-2">
                 <div class="form-row">
                     <div class="col-md-6">
@@ -60,8 +60,8 @@
         <!-- form Button start -->
         <kendo-dialog-actions >
             <button kendoButton
-                (click)="addUserRole()">{{ 'Save' | translate }}</button>
-            <button kendoButton (click)="onCloseUserRole(false)"> {{ 'Cancel' | translate }} </button>
+                (click)="addFiberType()">{{ 'Save' | translate }}</button>
+            <button kendoButton (click)="onCloseFiberType(false)"> {{ 'Cancel' | translate }} </button>
         </kendo-dialog-actions>
         <!-- form Button End -->
     </kendo-dialog>

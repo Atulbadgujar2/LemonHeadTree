@@ -16,16 +16,16 @@ export class FabricTypeAddComponent implements OnInit {
    //for submit
    submitted = false;
    // output from parent to close Modal 
-   @Output() closeAddUserRoleModal = new EventEmitter();
+   @Output() closeAddFiberTypeModal = new EventEmitter();
  
    @ViewChild('name') name?: ElementRef;
  
  
  
    //form Group tittle
-   userRole: FormGroup |any;
+   fiberType: FormGroup |any;
  
-   userRoleModalData: RoleModel = new RoleModel();
+   fiberTypeModalData: RoleModel = new RoleModel();
  
    constructor(private formBuilder: FormBuilder, private toastNotificationService: ToastNotificationService) { }
  
@@ -43,7 +43,7 @@ export class FabricTypeAddComponent implements OnInit {
  
    //form control function
    addFormControl() {
-     this.userRole = this.formBuilder.group({
+     this.fiberType = this.formBuilder.group({
        id: [''],     
        paramCode: [''],     
        paramDescription: [''],
@@ -54,40 +54,40 @@ export class FabricTypeAddComponent implements OnInit {
    }
  
    // on save data
-   public addUserRole() {
+   public addFiberType() {
      this.submitted = true
-     if (this.userRole.invalid) {
+     if (this.fiberType.invalid) {
        return;
      }
-     const formValue = this.userRole.value;
-     this.userRoleModalData.id = formValue.id;
-     this.userRoleModalData.name = formValue.name;
-     this.userRoleModalData.normalizedName=formValue.normalizedName;
+     const formValue = this.fiberType.value;
+     this.fiberTypeModalData.id = formValue.id;
+     this.fiberTypeModalData.name = formValue.name;
+     this.fiberTypeModalData.normalizedName=formValue.normalizedName;
      
      this.toastNotificationService.success(NotificationAction.AddedSucessfully);
-     // this.RoleService.addUserRole(this.userRoleModalData).subscribe(data => {
+     // this.RoleService.addfiberType(this.fiberTypeModalData).subscribe(data => {
      //   this.toastNotificationService.success(NotificationAction.AddedSucessfully);
-     //   this.onCloseUserRole(true);
+     //   this.onClosefiberType(true);
      // })
-     this.onCloseUserRole(true);
+     this.onCloseFiberType(true);
    }
    /**
    *  convenience getter for easy access to form fields
    * for add task code from
    */
    get formProperty() {
-     return this.userRole.controls;
+     return this.fiberType.controls;
    }
    // get formProperty end...
  
    // close add modal 
-   public onCloseUserRole(flag: boolean) {
+   public onCloseFiberType(flag: boolean) {
      const obj = {
        flag: flag,
-       data: this.userRole.value
+       data: this.fiberType.value
      }
  
-     this.closeAddUserRoleModal.emit(obj);
+     this.closeAddFiberTypeModal.emit(obj);
  
    }
 

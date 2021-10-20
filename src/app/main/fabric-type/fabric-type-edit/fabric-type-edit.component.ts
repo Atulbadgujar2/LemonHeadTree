@@ -17,24 +17,24 @@ export class FabricTypeEditComponent implements OnInit {
  //for modals button
  public actionsLayout = 'normal';
 
- @Output() closeEditUserRoleModal = new EventEmitter();
+ @Output() closeEditfiberTypeModal = new EventEmitter();
 
  //Input Param use to get value from  list grid component.
- @Input() onUserRoleId?: string;
+ @Input() onfiberTypeId?: string;
 
  // contains tenant data
- userRoleData: any = {};
- public userRoleModalData: RoleModel = new RoleModel();
+ fiberTypeData: any = {};
+ public fiberTypeModalData: RoleModel = new RoleModel();
  submitted: boolean = false;
  // Para to pass data to parent:
- public userRoleId?: string;
+ public fiberTypeId?: string;
  //form Group tittle
- userRoles: FormGroup|any
+ fiberTypes: FormGroup|any
  //flag for loader
  public loadingPanelVisible = true;
  public data : any;
 
- constructor(private formBuilder: FormBuilder, public userRoleService: RoleService, private toastNotificationService: ToastNotificationService,
+ constructor(private formBuilder: FormBuilder, public fiberTypeService: RoleService, private toastNotificationService: ToastNotificationService,
    private router: Router, private dataSharingService: DataSharingService) { }
 
  ngOnInit(): void {
@@ -42,34 +42,34 @@ export class FabricTypeEditComponent implements OnInit {
    
    //form function declare
    this.addFormControl();
-   this.onUserRoleId = this.dataSharingService.sharedStringId
+   this.onfiberTypeId = this.dataSharingService.sharedStringId
    //if clientid is undefined navigate to list page 
-   // if (this.onUserRoleId == undefined) {
+   // if (this.onfiberTypeId == undefined) {
    //   this.router.navigateByUrl('main/sm/role');
    // }
    // else {
-   //   this.getUserRoleDetails();
+   //   this.getfiberTypeDetails();
 
    // }
    debugger;
    this.data = this.dataSharingService.sharedObject
-   this.getUserRoleDetails();
+   this.getfiberTypeDetails();
 
  
  }
 
  // func to update edit data by api
- public getUserRoleDetails() {
-   // if(this.onUserRoleId)
-   // this.userRoleService.getUserRoleDetails(this.onUserRoleId).subscribe(response => {
-   //   this.userRoleData = response;
+ public getfiberTypeDetails() {
+   // if(this.onfiberTypeId)
+   // this.fiberTypeService.getfiberTypeDetails(this.onfiberTypeId).subscribe(response => {
+   //   this.fiberTypeData = response;
    //   this.setFormValue();
    // })
    this.setFormValue();
  }
 
  setFormValue() {
-   this.userRoles.patchValue({
+   this.fiberTypes.patchValue({
      id: this.data.id,
      paramCode: this.data.paramCode,
      paramDescription: this.data.paramDescription,
@@ -78,13 +78,13 @@ export class FabricTypeEditComponent implements OnInit {
      remark: this.data.remark
 
    })
-   // this.userRoleModalData = this.userRoleData;
+   // this.fiberTypeModalData = this.fiberTypeData;
    this.loadingPanelVisible = false
  }
 
  //form control function
  addFormControl() {
-   this.userRoles = this.formBuilder.group({
+   this.fiberTypes = this.formBuilder.group({
      id: [''],
      paramCode: [''],
      paramDescription: [''],
@@ -96,23 +96,23 @@ export class FabricTypeEditComponent implements OnInit {
  }
 
  // on Update data
- public updateUserRoleDetails() {
+ public updateFiberTypeDetails() {
    // this.submitted = true
-   // if (this.userRoles.invalid) {
+   // if (this.fiberTypes.invalid) {
    //   return;
    // }
-   // const formValue = this.userRoles.value;
-   // this.userRoleModalData.name = formValue.name;
-   // this.userRoleModalData.normalizedName = formValue.normalizedName;
-   // this.userRoleService.updateUserRoleDetails(this.userRoleModalData).subscribe(result => {
+   // const formValue = this.fiberTypes.value;
+   // this.fiberTypeModalData.name = formValue.name;
+   // this.fiberTypeModalData.normalizedName = formValue.normalizedName;
+   // this.fiberTypeService.updatefiberTypeDetails(this.fiberTypeModalData).subscribe(result => {
    //   this.toastNotificationService.success(NotificationAction.UpdateSucessfully)
-   //   this.onCloseUserRole(true);
+   //   this.onClosefiberType(true);
    // })
 
    
 
    this.toastNotificationService.success(NotificationAction.UpdateSucessfully)
-     this.onCloseUserRole(true);
+     this.onCloseFiberType(true);
  }
 
  /**
@@ -121,13 +121,13 @@ export class FabricTypeEditComponent implements OnInit {
 */
 
  get formProperty() {
-   return this.userRoles.controls;
+   return this.fiberTypes.controls;
  }
  // get formProperty end...
  // close edit modal 
- public onCloseUserRole(refreshList: boolean) {
-   let obj = { "flag": false, "data":  this.userRoles.value };
-   this.closeEditUserRoleModal.emit(obj);
+ public onCloseFiberType(refreshList: boolean) {
+   let obj = { "flag": false, "data":  this.fiberTypes.value };
+   this.closeEditfiberTypeModal.emit(obj);
  }
 
 }
