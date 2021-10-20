@@ -75,9 +75,6 @@ export class FiberTypeAddComponent implements OnInit {
      this.FiberTypeRequestModelData.params = this.fiberTypeModalData;
      this.FiberTypeRequestModelData.role.push('admin');
      
-  
-     
-     this.toastNotificationService.success(NotificationAction.AddedSucessfully);
      this.fabricTypeService.addFiberType(this.FiberTypeRequestModelData).subscribe(data => {
        this.toastNotificationService.success(NotificationAction.AddedSucessfully);
        this.onCloseFiberType(true);

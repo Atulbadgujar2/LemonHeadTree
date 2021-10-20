@@ -14,24 +14,24 @@ const routes: Routes = [];
         component: LeftNavTemplateComponent
         , children: [
           { path: '', redirectTo: 'main', pathMatch: 'full',data: { preload: true } },
-          { path: 'dashboard', loadChildren: () => import('app/dashboard/dashboard.module').then(m => m.DashboardModule),
-                data: {
-                  title: 'Dashboard Page'
-                }},
-                {
-                        path: 'ui-elements',
-                        loadChildren: () => import('app/ui-elements/ui-elements.module').then(m => m.UiElementsModule),
-                        data: {
-                          title: 'UI Elements'
-                        },
-                      },
-                      {
-                              path: 'forms',
-                              loadChildren: () => import('app/forms/forms.module').then(m => m.FormsModule),
-                              data: {
-                                title: 'Form Page'
-                              },
-                            },
+          // { path: 'dashboard', loadChildren: () => import('app/dashboard/dashboard.module').then(m => m.DashboardModule),
+          //       data: {
+          //         title: 'Dashboard Page'
+          //       }},
+          //       {
+          //               path: 'ui-elements',
+          //               loadChildren: () => import('app/ui-elements/ui-elements.module').then(m => m.UiElementsModule),
+          //               data: {
+          //                 title: 'UI Elements'
+          //               },
+          //             },
+          //             {
+          //                     path: 'forms',
+          //                     loadChildren: () => import('app/forms/forms.module').then(m => m.FormsModule),
+          //                     data: {
+          //                       title: 'Form Page'
+          //                     },
+          //                   },
                             {
                                     path: 'fibertype',
                                     loadChildren: () => import('app/main/fiber-type/fiber-type.module').then(m => m.FibertypeModule),
