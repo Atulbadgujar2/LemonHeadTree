@@ -116,6 +116,21 @@ export abstract class BaseService {
         );
     }
 
+    /**
+     * Executes the patch request with given uri parameters and header values.
+     * @param url: The reqeust URI. 
+     * @param data: The reqeust object. 
+     * @param args: The request argument. 
+     */
+     protected patch<T>(url: string, data: T, httpOptions: any, actionMethodName: string): Observable<any> {
+        httpOptions = this.setRequestOptions(httpOptions);
+        url = this.appendTimeInUrl(url);
+
+        return this.http.patch<T>(url, data, httpOptions);//.pipe(
+        // catchError(this.handleError(actionMethodName, []))
+        // );
+    }
+
 
     private setRequestOptions(httpOptions: any, includeToken = true): any {
 

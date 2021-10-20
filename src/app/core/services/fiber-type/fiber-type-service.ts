@@ -38,6 +38,12 @@ export class FiberTypeService  extends BaseService {
       return this.delete(url, fiberType, "deleteFiberType");
   }
 
+    // Update Fiber Types Details 
+  public updateFiberTypeDetails(fiberType: FiberTypeRequestModel): Observable<string> {
+      let url: string = environment.ServiceUrl + 'statparam'
+      return this.patch(url, fiberType, null, "updateFiberTypeDetails");
+  }
+
   //get User role  detail by User role id 
 //   public getUserRoleDetails(id: string): Observable<RoleModel> {
 //       const url: string = environment.ServiceUrl + 'Role/role?id='+ id;

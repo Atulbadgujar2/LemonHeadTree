@@ -2,7 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotificationAction } from 'app/core/constans/constants';
+import { FiberTypeModel } from 'app/core/model/fiber-type/fiber-type-model';
+import { FiberTypeRequestModel } from 'app/core/model/fiber-type/fiber-type-request.model';
 import { RoleModel } from 'app/core/model/role/role-model';
+import { FiberTypeService } from 'app/core/services/fiber-type/fiber-type-service';
 import { RoleService } from 'app/core/services/role.service';
 import { DataSharingService } from 'app/core/services/shared/data.sharing.service';
 import { ToastNotificationService } from 'app/core/services/toastnotification.service';
@@ -24,7 +27,9 @@ export class FiberTypeEditComponent implements OnInit {
 
  // contains tenant data
  fiberTypeData: any = {};
- public fiberTypeModalData: RoleModel = new RoleModel();
+ fiberTypeModalData: FiberTypeModel = new FiberTypeModel();
+ fiberTypeRequestModelData: FiberTypeRequestModel = new FiberTypeRequestModel();
+
  submitted: boolean = false;
  // Para to pass data to parent:
  public fiberTypeId?: string;
@@ -34,7 +39,7 @@ export class FiberTypeEditComponent implements OnInit {
  public loadingPanelVisible = true;
  public data : any;
 
- constructor(private formBuilder: FormBuilder, public fiberTypeService: RoleService, private toastNotificationService: ToastNotificationService,
+ constructor(private formBuilder: FormBuilder, public fiberTypeService: FiberTypeService, private toastNotificationService: ToastNotificationService,
    private router: Router, private dataSharingService: DataSharingService) { }
 
  ngOnInit(): void {
@@ -97,22 +102,27 @@ export class FiberTypeEditComponent implements OnInit {
 
  // on Update data
  public updateFiberTypeDetails() {
-   // this.submitted = true
-   // if (this.fiberTypes.invalid) {
-   //   return;
-   // }
-   // const formValue = this.fiberTypes.value;
-   // this.fiberTypeModalData.name = formValue.name;
-   // this.fiberTypeModalData.normalizedName = formValue.normalizedName;
-   // this.fiberTypeService.updatefiberTypeDetails(this.fiberTypeModalData).subscribe(result => {
-   //   this.toastNotificationService.success(NotificationAction.UpdateSucessfully)
-   //   this.onClosefiberType(true);
-   // })
+   debugger;
+   this.submitted = true
+   if (this.fiberTypes.invalid) {
+     return;
+   }
+   const formValue = this.fiberTypes.value;
+   this.fiberTypeModalData.id = formValue.id;
+   this.fiberTypeModalData.paramCode = formValue.paramCode;
+   this.fiberTypeModalData.paramDescription = formValue.paramDescription;
+   this.fiberTypeModalData.paramType = formValue.paramType;    
+   this.fiberTypeRequestModelData.params = this.fiberTypeModalData;
+   this.fiberTypeRequestModelData.role.push('admin');
+   this.fiberTypeService.updateFiberTypeDetails(this.fiberTypeRequestModelData).subscribe(result => {
+     this.toastNotificationService.success(NotificationAction.UpdateSucessfully)
+     this.onCloseFiberType(true);
+   })
 
    
 
-   this.toastNotificationService.success(NotificationAction.UpdateSucessfully)
-     this.onCloseFiberType(true);
+  //  this.toastNotificationService.success(NotificationAction.UpdateSucessfully)
+  //    this.onCloseFiberType(true);
  }
 
  /**
