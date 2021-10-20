@@ -7,7 +7,7 @@ import { RoleModel } from 'app/core/model/role/role-model';
 import { CurrencyFormattorPipe } from 'app/core/pipes/currencyformatter.pipe';
 import { DateTimeFormatterPipe } from 'app/core/pipes/datetimeformatter.pipe';
 import { AlertService } from 'app/core/services/alert.service';
-import { FabricTypeService } from 'app/core/services/fabrictype/fabric-type-service';
+import { FabricTypeService } from 'app/core/services/fabric-type/fabric-type-service';
 import { FavouriteService } from 'app/core/services/favourite/favourite.service';
 import { DataSharingService } from 'app/core/services/shared/data.sharing.service';
 import { ToastNotificationService } from 'app/core/services/toastnotification.service';

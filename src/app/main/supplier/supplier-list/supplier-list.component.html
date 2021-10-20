@@ -82,7 +82,7 @@
                         <kendo-grid-column  field="remark" title="Remark">                            
                         </kendo-grid-column>
                         <kendo-grid-column>
-                        <ng-template field = "Action" title="Action" kendoGridCellTemplate let-dataItem
+                        <ng-template  kendoGridCellTemplate let-dataItem
                             let-rowIndex="rowIndex">
                         <button kendoGridRemoveCommand icon="edit" (click)="getSelectedData([dataItem.id])"
                         title="Edit Data" class="mr-1"></button>

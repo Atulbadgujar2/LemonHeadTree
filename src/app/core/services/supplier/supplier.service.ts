@@ -10,11 +10,11 @@ import { HttpErrorHandlerService } from '../http-error-handler.service';
 @Injectable({
   providedIn: 'root'
 })
-export class FabricTypeService  extends BaseService {
+export class SupplierService extends BaseService {
   handleError: any;
   constructor(http: HttpClient, httpErrorHandler: HttpErrorHandlerService) {
       super(http);
-      this.handleError = httpErrorHandler.createHandleError('UserRoleService');
+      this.handleError = httpErrorHandler.createHandleError('SupplierService');
   }
 
 
