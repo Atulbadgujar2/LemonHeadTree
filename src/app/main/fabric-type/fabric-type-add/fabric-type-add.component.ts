@@ -5,11 +5,11 @@ import { RoleModel } from 'app/core/model/role/role-model';
 import { ToastNotificationService } from 'app/core/services/toastnotification.service';
 
 @Component({
-  selector: 'app-fabric-add',
-  templateUrl: './fabric-add.component.html',
-  styleUrls: ['./fabric-add.component.scss']
+  selector: 'app-fabric-type-add',
+  templateUrl: './fabric-type-add.component.html',
+  styleUrls: ['./fabric-type-add.component.scss']
 })
-export class FabricaddComponent implements OnInit {
+export class FabricTypeAddComponent implements OnInit {
 
    //for modals button
    public actionsLayout = 'normal';

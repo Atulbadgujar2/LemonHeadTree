@@ -15,11 +15,11 @@ import { DataSharingService } from 'app/core/services/shared/data.sharing.servic
 import { ToastNotificationService } from 'app/core/services/toastnotification.service';
 
 @Component({
-  selector: 'app-fabric-list',
-  templateUrl: './fabric-list.component.html',
-  styleUrls: ['./fabric-list.component.scss']
+  selector: 'app-fabric-type-list',
+  templateUrl: './fabric-type-list.component.html',
+  styleUrls: ['./fabric-type-list.component.scss']
 })
-export class FabriclistComponent extends BaseGrid implements OnInit {
+export class FabricTypeListComponent extends BaseGrid implements OnInit {
 
   // constructor() { }
 

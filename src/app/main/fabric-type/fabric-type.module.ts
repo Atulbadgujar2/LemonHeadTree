@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FabriclistComponent } from './fabric-list/fabric-list.component';
-import { FabricaddComponent } from './fabric-add/fabric-add.component';
-import { FabriceditComponent } from './fabric-edit/fabric-edit.component';
+import { FabricTypeListComponent } from './fabric-type-list/fabric-type-list.component';
+import { FabricTypeAddComponent } from './fabric-type-add/fabric-type-add.component';
+import { FabricTypeEditComponent } from './fabric-type-edit/fabric-type-edit.component';
 import { FabricTypeRoutingModule } from './fabric-type-routingmodule/fabric-type-routing.module';
 import { ExcelModule, GridModule, PDFModule } from '@progress/kendo-angular-grid';
 import { TrnaslateLazyModule } from 'app/core/modules/translate-lazy.module';
@@ -24,7 +24,7 @@ import { SharedComponentModule } from 'app/shared/shared-component/shared-compon
 
 
 @NgModule({
-  declarations: [FabriclistComponent, FabricaddComponent, FabriceditComponent],
+  declarations: [FabricTypeListComponent, FabricTypeAddComponent, FabricTypeEditComponent],
   providers:[DateTimeFormatterPipe, CurrencyFormattorPipe ],
   imports: [
     CommonModule,

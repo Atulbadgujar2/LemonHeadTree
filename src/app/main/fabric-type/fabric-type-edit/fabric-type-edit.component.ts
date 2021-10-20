@@ -8,11 +8,11 @@ import { DataSharingService } from 'app/core/services/shared/data.sharing.servic
 import { ToastNotificationService } from 'app/core/services/toastnotification.service';
 
 @Component({
-  selector: 'app-fabric-edit',
-  templateUrl: './fabric-edit.component.html',
-  styleUrls: ['./fabric-edit.component.scss']
+  selector: 'app-fabric-type-edit',
+  templateUrl: './fabric-type-edit.component.html',
+  styleUrls: ['./fabric-type-edit.component.scss']
 })
-export class FabriceditComponent implements OnInit {
+export class FabricTypeEditComponent implements OnInit {
 
  //for modals button
  public actionsLayout = 'normal';

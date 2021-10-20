@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FabriclistComponent } from '../fabric-list/fabric-list.component';
+import { FabricTypeListComponent } from '../fabric-type-list/fabric-type-list.component';
 
 
 
 
 const routes: Routes = [{
   path: '',  
-  component: FabriclistComponent,
+  component: FabricTypeListComponent,
   data: {
     title: 'Fiber Type'
   }
 },
 {
   path: 'fabrictype',  
-  component: FabriclistComponent,
+  component: FabricTypeListComponent,
   data: {
     title: 'Fiber Type'
   }
