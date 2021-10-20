@@ -29,7 +29,7 @@ export class FiberTypeAddComponent implements OnInit {
    fiberType: FormGroup |any;
  
    fiberTypeModalData: FiberTypeModel = new FiberTypeModel();
-   FiberTypeRequestModelData: FiberTypeRequestModel = new FiberTypeRequestModel();
+   fiberTypeRequestModelData: FiberTypeRequestModel = new FiberTypeRequestModel();
  
    constructor(private formBuilder: FormBuilder, private toastNotificationService: ToastNotificationService,
     public fabricTypeService: FiberTypeService) { }
@@ -72,10 +72,10 @@ export class FiberTypeAddComponent implements OnInit {
      this.fiberTypeModalData.paramCode = formValue.paramCode;
      this.fiberTypeModalData.paramDescription = formValue.paramDescription;
      this.fiberTypeModalData.paramType = formValue.paramType;    
-     this.FiberTypeRequestModelData.params = this.fiberTypeModalData;
-     this.FiberTypeRequestModelData.role.push('admin');
-     
-     this.fabricTypeService.addFiberType(this.FiberTypeRequestModelData).subscribe(data => {
+     this.fiberTypeRequestModelData.params = this.fiberTypeModalData;
+     this.fiberTypeRequestModelData.role.push('admin');
+
+     this.fabricTypeService.addFiberType(this.fiberTypeRequestModelData).subscribe(data => {
        this.toastNotificationService.success(NotificationAction.AddedSucessfully);
        this.onCloseFiberType(true);
      })

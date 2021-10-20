@@ -14,6 +14,7 @@ import { FavouriteService } from 'app/core/services/favourite/favourite.service'
 import { RoleService } from 'app/core/services/role.service';
 import { DataSharingService } from 'app/core/services/shared/data.sharing.service';
 import { ToastNotificationService } from 'app/core/services/toastnotification.service';
+import { FiberTypeRequestModel } from 'app/core/model/fiber-type/fiber-type-request.model';
 
 @Component({
   selector: 'app-fiber-type-list',
@@ -37,7 +38,7 @@ export class FiberTypeListComponent extends BaseGrid implements OnInit {
   //Modal to open delete
   public openDelFiberType = false;
 
-  public fabricTypeModalData: FiberTypeModel = new FiberTypeModel();
+  public fiberTypeModalData: FiberTypeModel = new FiberTypeModel();
 
   // to get data base grid property
   public gridDataList;
@@ -52,6 +53,9 @@ export class FiberTypeListComponent extends BaseGrid implements OnInit {
 
   // show input job status
   favouriteActive = false;
+
+  //For Delete Request
+  fiberTypeRequestModelData: FiberTypeRequestModel = new FiberTypeRequestModel();
 
   constructor(private renderer2: Renderer2, public alertService: AlertService,
     private toastNotificationService: ToastNotificationService, public datePipe: DateTimeFormatterPipe,
@@ -187,37 +191,43 @@ export class FiberTypeListComponent extends BaseGrid implements OnInit {
 
   //Delete Modal open on id
   deleteFiberType(id) {   
-    this.fabricTypeModalData = new FiberTypeModel();
-    this.fabricTypeModalData.id = id;
+    this.fiberTypeModalData = new FiberTypeModel();
+    this.fiberTypeModalData.id = id;
     this.onAlert();
   }
   //Close del Modal
   closeAlertModal(flag: { confirmStatus: boolean; modalFlag: boolean; }) {
-    // if (flag.confirmStatus == true) {
-    //   if(this.FiberTypeModalData.id)
-    //   this.FiberTypeService.deleteFiberType(this.FiberTypeModalData.id).subscribe(
-    //     res => {
-    //       this.getDataList();
-    //       this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
-    //     }
-    //   )
-    // }    
-      if (flag.confirmStatus == true) {
-   
-      if(this.fabricTypeModalData.id){
-        // const indexes = this.gridSettings.gridData.findIndex(element => element.id === this.FiberTypeModalData.id)
-        // this.gridSettings.gridData.splice(indexes,1) 
-
-        // var json = JSON.stringify(this.gridSettings.gridData);
-          const indexes = this.gridData.findIndex(element => element.id === this.fabricTypeModalData.id)
-        this.gridData.splice(indexes,1) 
-        let softjson = JSON.stringify(this.gridData);
-        localStorage.setItem('hardcoded',softjson);
-      // this.gridSettings.gridData = this.gridDataList;
-      this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
-     //this.gridSettings.gridData.slice(this.gridDataList[indexes],1);
+    debugger;
+    if (flag.confirmStatus == true) {
+      if(this.fiberTypeModalData.id){
+        this.fiberTypeRequestModelData = new FiberTypeRequestModel();
+        this.fiberTypeRequestModelData.params = this.fiberTypeModalData;
+        this.fiberTypeRequestModelData.role.push('admin');
+        this.fabricTypeService.deleteFiberTypeById(this.fiberTypeRequestModelData).subscribe(
+          res => {
+            this.getDataList();
+            this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
+          }
+        )
       }
-    }
+     
+    }    
+    //   if (flag.confirmStatus == true) {
+   
+    //   if(this.fabricTypeModalData.id){
+    //     // const indexes = this.gridSettings.gridData.findIndex(element => element.id === this.FiberTypeModalData.id)
+    //     // this.gridSettings.gridData.splice(indexes,1) 
+
+    //     // var json = JSON.stringify(this.gridSettings.gridData);
+    //       const indexes = this.gridData.findIndex(element => element.id === this.fabricTypeModalData.id)
+    //     this.gridData.splice(indexes,1) 
+    //     let softjson = JSON.stringify(this.gridData);
+    //     localStorage.setItem('hardcoded',softjson);
+    //   // this.gridSettings.gridData = this.gridDataList;
+    //   this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
+    //  //this.gridSettings.gridData.slice(this.gridDataList[indexes],1);
+    //   }
+    // }
       // this.FiberTypeService.deleteFiberType(this.FiberTypeModalData.id).subscribe(
       //   res => {
       //     this.getDataList();

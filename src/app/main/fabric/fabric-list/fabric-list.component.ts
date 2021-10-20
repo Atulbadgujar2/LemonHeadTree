@@ -201,22 +201,22 @@ export class FabricListComponent extends BaseGrid implements OnInit {
     //     }
     //   )
     // }    
-      if (flag.confirmStatus == true) {
+      // if (flag.confirmStatus == true) {
    
-      if(this.fabricModalData.id){
-        // const indexes = this.gridSettings.gridData.findIndex(element => element.id === this.userRoleModalData.id)
-        // this.gridSettings.gridData.splice(indexes,1) 
+    //   if(this.fabricModalData.id){
+    //     // const indexes = this.gridSettings.gridData.findIndex(element => element.id === this.userRoleModalData.id)
+    //     // this.gridSettings.gridData.splice(indexes,1) 
 
-        // var json = JSON.stringify(this.gridSettings.gridData);
-          const indexes = this.gridData.findIndex(element => element.id === this.fabricModalData.id)
-        this.gridData.splice(indexes,1) 
-        let softjson = JSON.stringify(this.gridData);
-        localStorage.setItem('hardcoded',softjson);
-      // this.gridSettings.gridData = this.gridDataList;
-      this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
-     //this.gridSettings.gridData.slice(this.gridDataList[indexes],1);
-      }
-    }
+    //     // var json = JSON.stringify(this.gridSettings.gridData);
+    //       const indexes = this.gridData.findIndex(element => element.id === this.fabricModalData.id)
+    //     this.gridData.splice(indexes,1) 
+    //     let softjson = JSON.stringify(this.gridData);
+    //     localStorage.setItem('hardcoded',softjson);
+    //   // this.gridSettings.gridData = this.gridDataList;
+    //   this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
+    //  //this.gridSettings.gridData.slice(this.gridDataList[indexes],1);
+    //   }
+    // }
       // this.userRoleService.deleteUserRole(this.userRoleModalData.id).subscribe(
       //   res => {
       //     this.getDataList();
