@@ -5,10 +5,11 @@ import { NotificationAction, ScreenConstants } from 'app/core/constans/constants
 import { ModalCssConstants } from 'app/core/constans/css.constants';
 import { RoleModel } from 'app/core/model/role/role-model';
 import { SupplierModel } from 'app/core/model/supplier/supplier-model';
+import { SupplierRequestModel } from 'app/core/model/supplier/supplier.request.model';
 import { CurrencyFormattorPipe } from 'app/core/pipes/currencyformatter.pipe';
 import { DateTimeFormatterPipe } from 'app/core/pipes/datetimeformatter.pipe';
 import { AlertService } from 'app/core/services/alert.service';
-import { FiberTypeService } from 'app/core/services/fiber-type/fiber-type-service';
+
 import { FavouriteService } from 'app/core/services/favourite/favourite.service';
 import { DataSharingService } from 'app/core/services/shared/data.sharing.service';
 import { SupplierService } from 'app/core/services/supplier/supplier.service';
@@ -43,6 +44,9 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
   // to get data base grid property
   public gridDataList;
   public gridData : any[] = [];
+
+    //For Delete Request
+    supplierRequestModelData: SupplierRequestModel = new SupplierRequestModel();
   
 
 
@@ -192,31 +196,31 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
   }
   //Close del Modal
   closeAlertModal(flag: { confirmStatus: boolean; modalFlag: boolean; }) {
-    // if (flag.confirmStatus == true) {
-    //   if(this.SupplierModalData.id)
-    //   this.SupplierService.deleteSupplier(this.SupplierModalData.id).subscribe(
-    //     res => {
-    //       this.getDataList();
-    //       this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
-    //     }
-    //   )
-    // }    
-      if (flag.confirmStatus == true) {
+    if (flag.confirmStatus == true) {
+      if(this.supplierModalData.id)
+      this.supplierService.deleteSupplier(this.supplierRequestModelData).subscribe(
+        res => {
+          this.getDataList();
+          this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
+        }
+      )
+    }    
+    //   if (flag.confirmStatus == true) {
    
-      if(this.supplierModalData.id){
-        // const indexes = this.gridSettings.gridData.findIndex(element => element.id === this.SupplierModalData.id)
-        // this.gridSettings.gridData.splice(indexes,1) 
+    //   if(this.supplierModalData.id){
+    //     // const indexes = this.gridSettings.gridData.findIndex(element => element.id === this.SupplierModalData.id)
+    //     // this.gridSettings.gridData.splice(indexes,1) 
 
-        // var json = JSON.stringify(this.gridSettings.gridData);
-          const indexes = this.gridData.findIndex(element => element.id === this.supplierModalData.id)
-        this.gridData.splice(indexes,1) 
-        let softjson = JSON.stringify(this.gridData);
-        localStorage.setItem('hardcoded',softjson);
-      // this.gridSettings.gridData = this.gridDataList;
-      this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
-     //this.gridSettings.gridData.slice(this.gridDataList[indexes],1);
-      }
-    }
+    //     // var json = JSON.stringify(this.gridSettings.gridData);
+    //       const indexes = this.gridData.findIndex(element => element.id === this.supplierModalData.id)
+    //     this.gridData.splice(indexes,1) 
+    //     let softjson = JSON.stringify(this.gridData);
+    //     localStorage.setItem('hardcoded',softjson);
+    //   // this.gridSettings.gridData = this.gridDataList;
+    //   this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
+    //  //this.gridSettings.gridData.slice(this.gridDataList[indexes],1);
+    //   }
+    // }
       // this.SupplierService.deleteSupplier(this.SupplierModalData.id).subscribe(
       //   res => {
       //     this.getDataList();

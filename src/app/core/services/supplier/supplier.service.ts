@@ -32,9 +32,9 @@ export class SupplierService extends BaseService {
 }
 
 //  Delete Supplier.
-public deleteSupplierById(Supplier: SupplierRequestModel): Observable<string> {
+public deleteSupplier(supplier: SupplierRequestModel): Observable<string> {
   let url: string = environment.ServiceUrl + 'supplier' 
-  return this.delete(url, Supplier, "deleteSupplier");
+  return this.delete(url, supplier, "deleteSupplier");
 }
 
 // Update Suppliers Details 
