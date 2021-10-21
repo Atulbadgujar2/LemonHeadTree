@@ -31,12 +31,12 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
   
 
   //Modal to open Add User role
-  public openAddUserRoleModal = false;
+  public openAddSupplierModal = false;
   //Modal to open Edit User role
-  public openEditUserRoleModal = false;
-  public userRole?: number;
+  public openEditSupplierModal = false;
+  public Supplier?: number;
   //Modal to open delete
-  public openDelUserRole = false;
+  public openDelSupplier = false;
 
   public supplierModalData: SupplierModel = new SupplierModel();
 
@@ -64,13 +64,13 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
     this.getDataList();
     super.initGrid();
     //for screen View
-    this.screenId = ScreenConstants.UserRole;
+    this.screenId = ScreenConstants.Supplier;
     // for grouping toggle 
     this.groupingEnabled = false
     // for filter toggle
     this.filterEnabled = false
     //set PDF/Excel export information
-    this.setExportData({ "pageName": ScreenConstants.UserRole });
+    this.setExportData({ "pageName": ScreenConstants.Supplier });
   }
   filtertoggle() {
     this.filterEnabled = !this.filterEnabled
@@ -115,19 +115,19 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
   }
 
   // function to open add  modal
-  onAddUserRole() {
-    this.openAddUserRoleModal = true;
+  onAddSupplier() {
+    this.openAddSupplierModal = true;
     // this.renderer2.addClass(document.body, ModalCssConstants.ModalOpen);
   }
   // function to close add  modal
-  closeAddUserRoleModal(data: any) {
+  closeAddSupplierModal(data: any) {
     // if (flag) {
     //   this.getDataList();
     // }
     this.gridData.push(data.data);
     let valueJson = JSON.stringify(this.gridData); 
     localStorage.setItem('hardcoded',valueJson)
-    this.openAddUserRoleModal = false;
+    this.openAddSupplierModal = false;
   }
 
  
@@ -152,15 +152,15 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
         this.router.navigateByUrl('main/sm/role');
       }
       else {
-        this.openEditUserRoleModal = true;
+        this.openEditSupplierModal = true;
       }
     }
   }
   // get selected data end..
 
   // function to close Edit  modal
-  closeEditUserRoleModal( data: any) {
-    // this.openEditUserRoleModal = obj.flag;
+  closeEditSupplierModal( data: any) {
+    // this.openEditSupplierModal = obj.flag;
 
     const indexes = this.gridData.findIndex(element => element.id === data.data.id)
     // this.gridDataList[indexes] = data.data;
@@ -170,7 +170,7 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
      localStorage.setItem('hardcoded',valueJson)
     // this.gridSettings.gridData = this.gridDataList;
     // this.gridDataList.push(data.data);
-     this.openEditUserRoleModal = false;
+     this.openEditSupplierModal = false;
     // if (obj.data) {
     //   this.getDataList();
     // }
@@ -180,12 +180,12 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
 
   //Open del Modal
   onAlert() {
-    this.openDelUserRole = true;
+    this.openDelSupplier = true;
     this.renderer2.addClass(document.body, ModalCssConstants.ModalOpen);
   }
 
   //Delete Modal open on id
-  deleteUserRole(id) {   
+  deleteSupplier(id) {   
     this.supplierModalData = new SupplierModel();
     this.supplierModalData.id = id;
     this.onAlert();
@@ -193,8 +193,8 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
   //Close del Modal
   closeAlertModal(flag: { confirmStatus: boolean; modalFlag: boolean; }) {
     // if (flag.confirmStatus == true) {
-    //   if(this.userRoleModalData.id)
-    //   this.userRoleService.deleteUserRole(this.userRoleModalData.id).subscribe(
+    //   if(this.SupplierModalData.id)
+    //   this.SupplierService.deleteSupplier(this.SupplierModalData.id).subscribe(
     //     res => {
     //       this.getDataList();
     //       this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
@@ -204,7 +204,7 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
       if (flag.confirmStatus == true) {
    
       if(this.supplierModalData.id){
-        // const indexes = this.gridSettings.gridData.findIndex(element => element.id === this.userRoleModalData.id)
+        // const indexes = this.gridSettings.gridData.findIndex(element => element.id === this.SupplierModalData.id)
         // this.gridSettings.gridData.splice(indexes,1) 
 
         // var json = JSON.stringify(this.gridSettings.gridData);
@@ -217,14 +217,14 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
      //this.gridSettings.gridData.slice(this.gridDataList[indexes],1);
       }
     }
-      // this.userRoleService.deleteUserRole(this.userRoleModalData.id).subscribe(
+      // this.SupplierService.deleteSupplier(this.SupplierModalData.id).subscribe(
       //   res => {
       //     this.getDataList();
       //     this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
       //   }
       // )
     // }
-    this.openDelUserRole = flag.modalFlag;
+    this.openDelSupplier = flag.modalFlag;
     // this.renderer2.removeClass(document.body, ModalCssConstants.ModalOpen);
   }
 

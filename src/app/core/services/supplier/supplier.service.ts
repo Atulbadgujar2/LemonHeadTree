@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SupplierRequestModel } from 'app/core/model/supplier/supplier.request.model';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { BaseService } from '../base.services';
@@ -23,6 +24,13 @@ export class SupplierService extends BaseService {
       const url: string = environment.ServiceUrl + 'supplier';
       return this.get<any>(url, null, 'getSupplierList');
   }
+
+   //To add Supplier details
+   public addSupplier(supplier: SupplierRequestModel): Observable<string> {
+    let url: string = environment.ServiceUrl + 'statparam'
+    return this.post<SupplierRequestModel>(url, supplier, null, "addSupplier");
+}
+
 
   //get User role  detail by User role id 
 //   public getUserRoleDetails(id: string): Observable<RoleModel> {

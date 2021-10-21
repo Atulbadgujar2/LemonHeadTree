@@ -22,6 +22,7 @@ export namespace LocalFileContants {
     export const ScreenPermission: string = 'Screen Permission';
     export const RolePermission: string = 'Role Permission';
     export const FiberType: string = 'Fiber Type';
+    export const Supplier: string = 'Supplier';
 
   }
 
