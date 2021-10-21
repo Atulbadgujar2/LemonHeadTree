@@ -27,7 +27,7 @@ export class SupplierService extends BaseService {
 
    //To add Supplier details
    public addSupplier(supplier: SupplierRequestModel): Observable<string> {
-    let url: string = environment.ServiceUrl + 'statparam'
+    let url: string = environment.ServiceUrl + 'supplier'
     return this.post<SupplierRequestModel>(url, supplier, null, "addSupplier");
 }
 

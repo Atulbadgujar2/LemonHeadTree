@@ -3,8 +3,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { NotificationAction } from 'app/core/constans/constants';
 import { SupplierModel } from 'app/core/model/supplier/supplier-model';
 import { SupplierRequestModel } from 'app/core/model/supplier/supplier.request.model';
-import { FiberTypeService } from 'app/core/services/fiber-type/fiber-type-service';
 import { SupplierService } from 'app/core/services/supplier/supplier.service';
+
+
 import { ToastNotificationService } from 'app/core/services/toastnotification.service';
 
 @Component({
@@ -19,14 +20,14 @@ export class SupplierAddComponent implements OnInit {
   //for submit
   submitted = false;
   // output from parent to close Modal 
-  @Output() closeAddFiberTypeModal = new EventEmitter();
+  @Output() closeAddSupplierModal = new EventEmitter();
 
   @ViewChild('name') name?: ElementRef;
 
 
 
   //form Group tittle
-  fiberType: FormGroup |any;
+  supplier: FormGroup |any;
 
   supplierModalData: SupplierModel = new SupplierModel();
   supplierRequestModelData: SupplierRequestModel = new SupplierRequestModel();
@@ -48,7 +49,7 @@ export class SupplierAddComponent implements OnInit {
 
   //form control function
   addFormControl() {
-    this.fiberType = this.formBuilder.group({
+    this.supplier = this.formBuilder.group({
       id: [''],     
       name: [''],     
       contactDetail: [''],
@@ -59,16 +60,16 @@ export class SupplierAddComponent implements OnInit {
   }
 
   // on save data
-  public addFiberType() {
+  public addSupplier() {
     debugger;
     this.submitted = true
-    if (this.fiberType.invalid) {
+    if (this.supplier.invalid) {
       return;
     }
-    const formValue = this.fiberType.value;
-   //  this.fiberTypeModalData.id = formValue.id;
-   //  this.fiberTypeModalData.status = formValue.status;
-   //  this.fiberTypeModalData.remark = formValue.remark;
+    const formValue = this.supplier.value;
+   //  this.SupplierModalData.id = formValue.id;
+   //  this.SupplierModalData.status = formValue.status;
+   //  this.SupplierModalData.remark = formValue.remark;
     this.supplierModalData.name = formValue.name;
     this.supplierModalData.contactDetail = formValue.contactDetail;
     this.supplierModalData.warehouseDetail = formValue.warehouseDetail;    
@@ -77,27 +78,27 @@ export class SupplierAddComponent implements OnInit {
 
     this.supplierService.addSupplier(this.supplierRequestModelData).subscribe(data => {
       this.toastNotificationService.success(NotificationAction.AddedSucessfully);
-      this.onCloseFiberType(true);
+      this.onCloseSupplier(true);
     })
-   //  this.onCloseFiberType(true);
+   //  this.onCloseSupplier(true);
   }
   /**
   *  convenience getter for easy access to form fields
   * for add task code from
   */
   get formProperty() {
-    return this.fiberType.controls;
+    return this.supplier.controls;
   }
   // get formProperty end...
 
   // close add modal 
-  public onCloseFiberType(flag: boolean) {
+  public onCloseSupplier(flag: boolean) {
     const obj = {
       flag: flag,
-      data: this.fiberType.value
+      data: this.supplier.value
     }
 
-    this.closeAddFiberTypeModal.emit(obj);
+    this.closeAddSupplierModal.emit(obj);
 
   }
 
