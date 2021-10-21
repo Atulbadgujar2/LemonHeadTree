@@ -8,7 +8,12 @@
     "Filter":"Filter",
     "Supplier":"Supplier",
     "Fabric": "Fabric",
-    "FiberComposition": "Fiber Composition"
+    "FiberComposition": "Fiber Composition",
+    "WarehouseDetail": "Warehouse Detail",
+    "contactDetail": "Contact Detail",
+    "Name": "Name"
+    
+
     
     
 }

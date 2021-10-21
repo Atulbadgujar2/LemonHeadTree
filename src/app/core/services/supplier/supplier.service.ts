@@ -31,6 +31,18 @@ export class SupplierService extends BaseService {
     return this.post<SupplierRequestModel>(url, supplier, null, "addSupplier");
 }
 
+//  Delete Supplier.
+public deleteSupplierById(Supplier: SupplierRequestModel): Observable<string> {
+  let url: string = environment.ServiceUrl + 'supplier' 
+  return this.delete(url, Supplier, "deleteSupplier");
+}
+
+// Update Suppliers Details 
+public updateSupplierDetails(Supplier: SupplierRequestModel): Observable<string> {
+  let url: string = environment.ServiceUrl + 'supplier'
+  return this.patch(url, Supplier, null, "updateSupplierDetails");
+}
+
 
   //get User role  detail by User role id 
 //   public getUserRoleDetails(id: string): Observable<RoleModel> {

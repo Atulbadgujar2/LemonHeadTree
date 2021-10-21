@@ -142,14 +142,14 @@ export class SupplierListComponent extends BaseGrid implements OnInit {
       return
     } else {
       const id = selection.pop();
-      // const indexes = this.gridSettings.gridData.findIndex((item: { id: any; }) => item.id === id)
-      // this.selectedData = this.gridSettings.gridData[indexes];
-        const indexes = this.gridData.findIndex((item: { id: any; }) => item.id === id)
-      this.selectedData = this.gridData[indexes];
+      const indexes = this.gridSettings.gridData.data.findIndex((item: { id: any; }) => item.id === id)
+      this.selectedData = this.gridSettings.gridData.data[indexes];
+      //   const indexes = this.gridData.findIndex((item: { id: any; }) => item.id === id)
+      // this.selectedData = this.gridData[indexes];
       this.dataSharingService.sharedStringId = this.selectedData.id;
       this.dataSharingService.sharedObject = this.selectedData;
       if (this.selectedData.id == undefined) {
-        this.router.navigateByUrl('main/sm/role');
+        this.router.navigateByUrl('main/supplier');
       }
       else {
         this.openEditSupplierModal = true;
