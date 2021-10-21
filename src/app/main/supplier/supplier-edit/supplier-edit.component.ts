@@ -75,9 +75,9 @@ export class SupplierEditComponent implements OnInit {
  setFormValue() {
    this.suppliers.patchValue({
      id: this.data.id,
-     paramCode: this.data.paramCode,
-     paramDescription: this.data.paramDescription,
-     paramType: this.data.paramType,
+     name: this.data.name,
+     contactDetail: this.data.contactDetail,
+     warehouseDetail: this.data.warehouseDetail,
      status: this.data.status,
      remark: this.data.remark
 
