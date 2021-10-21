@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { BaseGrid } from 'app/core/component/basegrid';
 import { NotificationAction, ScreenConstants } from 'app/core/constans/constants';
 import { ModalCssConstants } from 'app/core/constans/css.constants';
+import { FiberCompositionRequestModel } from 'app/core/model/fiber-composition/fiber-composition-request-model';
+import { FiberCompositionModel } from 'app/core/model/fiber-composition/fiber-composition.model';
 import { RoleModel } from 'app/core/model/role/role-model';
 import { CurrencyFormattorPipe } from 'app/core/pipes/currencyformatter.pipe';
 import { DateTimeFormatterPipe } from 'app/core/pipes/datetimeformatter.pipe';
@@ -29,14 +31,16 @@ export class FiberCompositionListComponent extends BaseGrid implements OnInit {
   
 
   //Modal to open Add User role
-  public openAddUserRoleModal = false;
+  public openAddFiberCompositionModal = false;
   //Modal to open Edit User role
-  public openEditUserRoleModal = false;
-  public userRole?: number;
+  public openEditFiberCompositionModal = false;
+  public FiberComposition?: number;
   //Modal to open delete
-  public openDelUserRole = false;
+  public openDelFiberComposition = false;
 
-  public userRoleModalData: RoleModel = new RoleModel();
+  public fiberCompositionModalData: FiberCompositionModel = new FiberCompositionModel();
+  //For Delete Request
+  fiberTypeRequestModelData: FiberCompositionRequestModel = new FiberCompositionRequestModel();
 
   // to get data base grid property
   public gridDataList;
@@ -63,13 +67,13 @@ export class FiberCompositionListComponent extends BaseGrid implements OnInit {
     this.getDataList();
     super.initGrid();
     //for screen View
-    this.screenId = ScreenConstants.UserRole;
+    this.screenId = ScreenConstants.FiberComposition;
     // for grouping toggle 
     this.groupingEnabled = false
     // for filter toggle
     this.filterEnabled = false
     //set PDF/Excel export information
-    this.setExportData({ "pageName": ScreenConstants.UserRole });
+    this.setExportData({ "pageName": ScreenConstants.FiberComposition });
   }
   filtertoggle() {
     this.filterEnabled = !this.filterEnabled
@@ -115,19 +119,19 @@ export class FiberCompositionListComponent extends BaseGrid implements OnInit {
   }
 
   // function to open add  modal
-  onAddUserRole() {
-    this.openAddUserRoleModal = true;
+  onAddFiberComposition() {
+    this.openAddFiberCompositionModal = true;
     // this.renderer2.addClass(document.body, ModalCssConstants.ModalOpen);
   }
   // function to close add  modal
-  closeAddUserRoleModal(data: any) {
+  closeAddFiberCompositionModal(data: any) {
     // if (flag) {
     //   this.getDataList();
     // }
     this.gridData.push(data.data);
     let valueJson = JSON.stringify(this.gridData); 
     localStorage.setItem('hardcoded',valueJson)
-    this.openAddUserRoleModal = false;
+    this.openAddFiberCompositionModal = false;
   }
 
  
@@ -153,15 +157,15 @@ export class FiberCompositionListComponent extends BaseGrid implements OnInit {
         this.router.navigateByUrl('main/sm/role');
       }
       else {
-        this.openEditUserRoleModal = true;
+        this.openEditFiberCompositionModal = true;
       }
     }
   }
   // get selected data end..
 
   // function to close Edit  modal
-  closeEditUserRoleModal( data: any) {
-    // this.openEditUserRoleModal = obj.flag;
+  closeEditFiberCompositionModal( data: any) {
+    // this.openEditFiberCompositionModal = obj.flag;
 
     const indexes = this.gridData.findIndex(element => element.id === data.data.id)
     // this.gridDataList[indexes] = data.data;
@@ -171,7 +175,7 @@ export class FiberCompositionListComponent extends BaseGrid implements OnInit {
      localStorage.setItem('hardcoded',valueJson)
     // this.gridSettings.gridData = this.gridDataList;
     // this.gridDataList.push(data.data);
-     this.openEditUserRoleModal = false;
+     this.openEditFiberCompositionModal = false;
     // if (obj.data) {
     //   this.getDataList();
     // }
@@ -181,52 +185,52 @@ export class FiberCompositionListComponent extends BaseGrid implements OnInit {
 
   //Open del Modal
   onAlert() {
-    this.openDelUserRole = true;
+    this.openDelFiberComposition = true;
     this.renderer2.addClass(document.body, ModalCssConstants.ModalOpen);
   }
 
   //Delete Modal open on id
-  deleteUserRole(id: string) {
+  deleteFiberComposition(id) {
     debugger;
-    this.userRoleModalData = new RoleModel();
-    this.userRoleModalData.id = id;
+    this.fiberCompositionModalData = new FiberCompositionModel();
+    this.fiberCompositionModalData.id = id;
     this.onAlert();
   }
   //Close del Modal
   closeAlertModal(flag: { confirmStatus: boolean; modalFlag: boolean; }) {
-    // if (flag.confirmStatus == true) {
-    //   if(this.userRoleModalData.id)
-    //   this.userRoleService.deleteUserRole(this.userRoleModalData.id).subscribe(
-    //     res => {
-    //       this.getDataList();
-    //       this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
-    //     }
-    //   )
-    // }    
-      if (flag.confirmStatus == true) {
+    if (flag.confirmStatus == true) {
+      if(this.fiberCompositionModalData.id)
+      this.fiberCompositionService.deleteFiberComposition(this.fiberTypeRequestModelData).subscribe(
+        res => {
+          this.getDataList();
+          this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
+        }
+      )
+    }    
+    //   if (flag.confirmStatus == true) {
    
-      if(this.userRoleModalData.id){
-        // const indexes = this.gridSettings.gridData.findIndex(element => element.id === this.userRoleModalData.id)
-        // this.gridSettings.gridData.splice(indexes,1) 
+    //   if(this.fiberCompositionModalData.id){
+    //     // const indexes = this.gridSettings.gridData.findIndex(element => element.id === this.FiberCompositionModalData.id)
+    //     // this.gridSettings.gridData.splice(indexes,1) 
 
-        // var json = JSON.stringify(this.gridSettings.gridData);
-          const indexes = this.gridData.findIndex(element => element.id === this.userRoleModalData.id)
-        this.gridData.splice(indexes,1) 
-        let softjson = JSON.stringify(this.gridData);
-        localStorage.setItem('hardcoded',softjson);
-      // this.gridSettings.gridData = this.gridDataList;
-      this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
-     //this.gridSettings.gridData.slice(this.gridDataList[indexes],1);
-      }
-    }
-      // this.userRoleService.deleteUserRole(this.userRoleModalData.id).subscribe(
-      //   res => {
-      //     this.getDataList();
-      //     this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
-      //   }
-      // )
+    //     // var json = JSON.stringify(this.gridSettings.gridData);
+    //       const indexes = this.gridData.findIndex(element => element.id === this.fiberCompositionModalData.id)
+    //     this.gridData.splice(indexes,1) 
+    //     let softjson = JSON.stringify(this.gridData);
+    //     localStorage.setItem('hardcoded',softjson);
+    //   // this.gridSettings.gridData = this.gridDataList;
+    //   this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
+    //  //this.gridSettings.gridData.slice(this.gridDataList[indexes],1);
+    //   }
     // }
-    this.openDelUserRole = flag.modalFlag;
+    //   // this.FiberCompositionService.deleteFiberComposition(this.FiberCompositionModalData.id).subscribe(
+    //   //   res => {
+    //   //     this.getDataList();
+    //   //     this.toastNotificationService.success(NotificationAction.DeleteSucessfully);
+    //   //   }
+    //   // )
+    // // }
+    this.openDelFiberComposition = flag.modalFlag;
     // this.renderer2.removeClass(document.body, ModalCssConstants.ModalOpen);
   }
 

@@ -25,7 +25,7 @@
                             (click)="getDataList()"></button>
                         <!-- Refresh Button End -->
                         <!-- Add LoV Button Start -->
-                        <button class="k-button btn-icons" kendoButton icon="add"  (click)="onAddUserRole()">{{'Add' |
+                        <button class="k-button btn-icons" kendoButton icon="add"  (click)="onAddFiberComposition()">{{'Add' |
                             translate}}</button>
                         <!-- Add LoV Button End -->
                         <!-- Colunm Chooser Button Start -->
@@ -84,7 +84,7 @@
                             let-rowIndex="rowIndex">
                         <button kendoGridRemoveCommand icon="edit" (click)="getSelectedData([dataItem.id])"
                         title="Edit Data" class="mr-1"></button>
-                        <button  kendoGridRemoveCommand icon="delete" (click)="deleteUserRole(dataItem.id)" ></button>
+                        <button  kendoGridRemoveCommand icon="delete" (click)="deleteFiberComposition(dataItem.id)" ></button>
                         </ng-template>
                 </kendo-grid-column>
                     <!--</kendo-grid-column>-->
@@ -99,13 +99,13 @@
     <!-- Grid End -->
 </div>
 <!-- User Role linking Add selectors Start -->
-<app-fiber-composition-add *ngIf="openAddUserRoleModal" (closeAddUserRoleModal)='closeAddUserRoleModal($event)'></app-fiber-composition-add>
+<app-fiber-composition-add *ngIf="openAddFiberCompositionModal" (closeAddFiberCompositionModal)='closeAddFiberCompositionModal($event)'></app-fiber-composition-add>
 <!-- User Role linking Add selectors End -->
 <!-- User Role linking Edit selectors Start -->
-<app-fiber-composition-edit *ngIf="openEditUserRoleModal" (closeEditUserRoleModal)='closeEditUserRoleModal($event)'></app-fiber-composition-edit>
+<app-fiber-composition-edit *ngIf="openEditFiberCompositionModal" (closeEditFiberCompositionModal)='closeEditFiberCompositionModal($event)'></app-fiber-composition-edit>
 <!-- User Role linking Edit selectors End -->
 
 <!-- Delete User Role linking selectors Start -->
-<app-common-alert *ngIf="openDelUserRole" (closeAlertModal)='closeAlertModal($event)'>
+<app-common-alert *ngIf="openDelFiberComposition" (closeAlertModal)='closeAlertModal($event)'>
 </app-common-alert>
 <!-- Delete User Role linking selectors End -->

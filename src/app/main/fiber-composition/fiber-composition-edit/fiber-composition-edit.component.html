@@ -1,1 +1,65 @@
-<p>fabric-composition-edit works!</p>
+<!-- Kendo dialog start -->
+<div class="example-wrapper">
+    <kendo-dialog title="{{ 'FiberComposition' | translate }}" (close)="onCloseFiberComposition(false)" [width]="850"
+        class="k-dialog-wrapper">
+        <!-- form body start -->
+        <form [formGroup]="FiberCompositions">
+            <div class="k-loading-panel" *ngIf="loadingPanelVisible">
+                <div class="k-loading-panel-mask"></div>
+                <kendo-loader [type]="'pulsing'" [themeColor]="'primary'" [size]="'large'">
+                </kendo-loader>
+            </div>
+            <fieldset class="k-form-fieldset mb-2 p-2">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <kendo-formfield>
+                            <kendo-label for="id" text="{{ 'Id' | translate }}"></kendo-label>
+                            <input formControlName="id" class="form-control" type="text" kendoTextBox #id disabled />
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6">
+                        <kendo-formfield 
+                            class="required">
+                            <kendo-label for="fibertype" text="{{ 'Fiber Type' | translate }}"></kendo-label>
+                            <input formControlName="fibertype" class="form-control" maxlength="250" id="fibertype"
+                                type="text" kendoTextBox #fibertype required />
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6">
+                        <kendo-formfield 
+                            class="required">
+                            <kendo-label for="compositionPercent" text="{{ 'Composition Percent' | translate }}"></kendo-label>
+                            <input formControlName="compositionPercent" class="form-control" maxlength="250" id="compositionPercent"
+                                type="text" kendoTextBox #compositionPercent required />
+                        </kendo-formfield>
+                    </div>                    
+                    <div class="col-md-6">
+                        <kendo-formfield 
+                            class="required">
+                            <kendo-label for="status" text="{{ 'Status' | translate }}"></kendo-label>
+                            <input formControlName="status" class="form-control" maxlength="250" id="status"
+                                type="text" kendoTextBox #status disabled />
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6">
+                        <kendo-formfield 
+                            class="required">
+                            <kendo-label for="remark" text="{{ 'Remark' | translate }}"></kendo-label>
+                            <input formControlName="remark" class="form-control" maxlength="250" id="remark"
+                                type="text" kendoTextBox #remark  disabled />
+                        </kendo-formfield>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <!-- form body End -->
+        <!-- form Button start -->
+        <kendo-dialog-actions >
+            <button kendoButton 
+                (click)="updateFiberCompositionDetails()">{{ 'Save' | translate }}</button>
+            <button kendoButton (click)="onCloseFiberComposition(false)"> {{ 'Cancel' | translate }} </button>
+        </kendo-dialog-actions>
+        <!-- form Button End -->
+    </kendo-dialog>
+</div>
+<!-- Kendo dialog End -->
