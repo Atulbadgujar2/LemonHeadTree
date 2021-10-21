@@ -20,7 +20,7 @@ export class FiberTypeService  extends BaseService {
   }
 
 
-  //to get User role list
+  //to get Fiber Type list
   public getFiberTypeList(): Observable<any> {
       const url: string = environment.ServiceUrl + 'statparam';
       return this.get<any>(url, null, 'getFiberTypeList');

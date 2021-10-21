@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FiberCompositionRequestModel } from 'app/core/model/fiber-composition/fiber-composition-request-model';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { BaseService } from '../base.services';
@@ -18,11 +19,30 @@ export class FiberCompositionService  extends BaseService {
   }
 
 
-  //to get User role list
+  //to get Fiber Compositio list
   public getFiberCompositionList(): Observable<any> {
-      const url: string = environment.ServiceUrl + 'fabric';
+      const url: string = environment.ServiceUrl + 'fibercomposition';
       return this.get<any>(url, null, 'getFiberCompositionList');
-  }
+  } 
+
+
+  //To add Fiber Compositio details
+public addFiberComposition(fiberComposition: FiberCompositionRequestModel): Observable<string> {
+    let url: string = environment.ServiceUrl + 'fibercomposition'
+    return this.post<FiberCompositionRequestModel>(url, fiberComposition, null, "addFiberComposition");
+}
+
+//  Delete Fiber Compositio.
+public deleteFiberComposition(fiberComposition: FiberCompositionRequestModel): Observable<string> {
+    let url: string = environment.ServiceUrl + 'fibercomposition' 
+    return this.delete(url, fiberComposition, "deleteFiberComposition");
+}
+
+  // Update Fiber Compositio Details 
+public updateFiberCompositionDetails(fiberComposition: FiberCompositionRequestModel): Observable<string> {
+    let url: string = environment.ServiceUrl + 'fibercomposition'
+    return this.patch(url, fiberComposition, null, "updateFiberCompositionDetails");
+}
 
   //get User role  detail by User role id 
 //   public getUserRoleDetails(id: string): Observable<RoleModel> {
