@@ -19,6 +19,7 @@ import { PopupModule } from '@progress/kendo-angular-popup';
 import { TranslateModule } from '@ngx-translate/core';
 import { DateTimeFormatterPipe } from 'app/core/pipes/datetimeformatter.pipe';
 import { CurrencyFormattorPipe } from 'app/core/pipes/currencyformatter.pipe';
+import { TrnaslateLazyModule } from 'app/core/modules/translate-lazy.module';
 
 
 @NgModule({
@@ -29,14 +30,14 @@ import { CurrencyFormattorPipe } from 'app/core/pipes/currencyformatter.pipe';
     FabricRoutingModule,
     SharedComponentModule,
     GridModule,   
-    DropDownListModule,  
+    DropDownListModule,
     FormsModule,
     ExcelModule,
     PDFModule,
     DatePickerModule,
-    DialogsModule,
+    DialogsModule,   
     ButtonsModule,  
-    //TrnaslateLazyModule,
+    TrnaslateLazyModule,
     DropDownsModule,
     LabelModule,
     InputsModule,

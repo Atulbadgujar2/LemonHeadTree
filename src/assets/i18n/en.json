@@ -10,11 +10,22 @@
     "Fabric": "Fabric",
     "FiberComposition": "Fiber Composition",
     "WarehouseDetail": "Warehouse Detail",
-    "contactDetail": "Contact Detail",
+    "ContactDetail": "Contact Detail",
     "Name": "Name",
     "CompositionPercent": "Composition Percent",
-    "Fibertype": "Fiber type"
-    
+    "Fibertype": "Fiber type",
+    "SupplierFabricName": "Supplier Fabric Name",
+    "Color": "Color",
+    "PreTreatmentType": "Pre Treatment Type",
+    "SupplierFabricRef": "Supplier Fabric Ref",
+    "ItemCustomsCode": "Item Customs Code",
+    "FabricWidthCM": "Fabric Width CM",
+    "FabricGSM": "Fabric GSM",
+    "AvgRollLength": "Avg Roll Length",
+    "RefPriceListAttachment": "Ref Price List Attachment",
+    "LHPFabricName": "LHP Fabric Name",
+    "FabricStatus": "Fabric Status",
+    "PrintTechOption": "Print Tech Option"
 
     
     

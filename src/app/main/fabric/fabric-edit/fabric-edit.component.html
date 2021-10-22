@@ -1,1 +1,145 @@
-<p>fabric-edit works!</p>
+<!-- Kendo dialog start -->
+<div class="example-wrapper">
+    <kendo-dialog title="{{ 'Fabric' | translate }}" (close)="onCloseFabric(false)" [width]="850"
+        class="k-dialog-wrapper">
+        <!-- form body start -->
+        <form [formGroup]="fabrics">
+            <div class="k-loading-panel" *ngIf="loadingPanelVisible">
+                <div class="k-loading-panel-mask"></div>
+                <kendo-loader [type]="'pulsing'" [themeColor]="'primary'" [size]="'large'">
+                </kendo-loader>
+            </div>
+            <fieldset class="k-form-fieldset mb-2 p-2">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <kendo-formfield>
+                            <kendo-label for="id" text="{{ 'Id' | translate }}"></kendo-label>
+                            <input formControlName="id" class="form-control" type="text" kendoTextBox #id disabled />
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6">
+                        <kendo-formfield 
+                            class="required">
+                            <kendo-label for="supplierFabricName" text="{{ 'SupplierFabricName' | translate }}"></kendo-label>
+                            <input formControlName="supplierFabricName" class="form-control" maxlength="250" id="supplierFabricName"
+                                type="text" #supplierFabricName kendoTextBox required />
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6">
+                        <kendo-formfield 
+                            class="required">
+                            <kendo-label for="color" text="{{ 'Color' | translate }}"></kendo-label>
+                            <input formControlName="color" class="form-control" maxlength="250" id="color"
+                                type="text" #color kendoTextBox required />
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6">
+                        <kendo-formfield 
+                            class="required">
+                            <kendo-label for="preTreatmentType" text="{{ 'PreTreatmentType' | translate }}"></kendo-label>
+                            <input formControlName="preTreatmentType" class="form-control" maxlength="250" id="preTreatmentType"
+                                type="text" #preTreatmentType kendoTextBox required />
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6">
+                        <kendo-formfield 
+                            class="required">
+                            <kendo-label for="supplierFabricRef" text="{{ 'SupplierFabricRef' | translate }}"></kendo-label>
+                            <input formControlName="supplierFabricRef" class="form-control" maxlength="250" id="supplierFabricRef"
+                                type="text" #supplierFabricRef kendoTextBox required />
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6">
+                        <kendo-formfield 
+                            class="required">
+                            <kendo-label for="itemCustomsCode" text="{{ 'ItemCustomsCode' | translate }}"></kendo-label>
+                            <input formControlName="itemCustomsCode" class="form-control" maxlength="250" id="itemCustomsCode"
+                                type="text" #itemCustomsCode kendoTextBox required />
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6">
+                        <kendo-formfield 
+                            class="required">
+                            <kendo-label for="fabricWidthCM" text="{{ 'FabricWidthCM' | translate }}"></kendo-label>
+                            <input formControlName="fabricWidthCM" class="form-control" maxlength="250" id="fabricWidthCM"
+                                type="text" #fabricWidthCM kendoTextBox required />
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6">
+                        <kendo-formfield 
+                            class="required">
+                            <kendo-label for="fabricGSM" text="{{ 'FabricGSM' | translate }}"></kendo-label>
+                            <input formControlName="fabricGSM" class="form-control" maxlength="250" id="fabricGSM"
+                                type="text" #fabricGSM kendoTextBox required />
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6">
+                        <kendo-formfield 
+                            class="required">
+                            <kendo-label for="avgRollLength" text="{{ 'AvgRollLength' | translate }}"></kendo-label>
+                            <input formControlName="avgRollLength" class="form-control" maxlength="250" id="avgRollLength"
+                                type="text" #avgRollLength kendoTextBox required />
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6">
+                        <kendo-formfield 
+                            class="required">
+                            <kendo-label for="refPriceListAttachment" text="{{ 'RefPriceListAttachment' | translate }}"></kendo-label>
+                            <input formControlName="refPriceListAttachment" class="form-control" maxlength="250" id="refPriceListAttachment"
+                                type="text" #refPriceListAttachment kendoTextBox required />
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6">
+                        <kendo-formfield 
+                            class="required">
+                            <kendo-label for="lhpFabricName" text="{{ 'LHPFabricName' | translate }}"></kendo-label>
+                            <input formControlName="lhpFabricName" class="form-control" maxlength="250" id="lhpFabricName"
+                                type="text" #lhpFabricName kendoTextBox required />
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6">
+                        <kendo-formfield 
+                            class="required">
+                            <kendo-label for="fabricStatus" text="{{ 'FabricStatus' | translate }}"></kendo-label>
+                            <input formControlName="fabricStatus" class="form-control" maxlength="250" id="fabricStatus"
+                                type="text" #fabricStatus kendoTextBox required />
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6">
+                        <kendo-formfield 
+                            class="required">
+                            <kendo-label for="printTechOption" text="{{ 'PrintTechOption' | translate }}"></kendo-label>
+                            <input formControlName="printTechOption" class="form-control" maxlength="250" id="printTechOption"
+                                type="text" #printTechOption kendoTextBox required />
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6">
+                        <kendo-formfield 
+                            class="required">
+                            <kendo-label for="status" text="{{ 'Status' | translate }}"></kendo-label>
+                            <input formControlName="status" class="form-control" maxlength="250" id="status"
+                                type="text" kendoTextBox #status disabled />
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6">
+                        <kendo-formfield 
+                            class="required">
+                            <kendo-label for="remark" text="{{ 'Remark' | translate }}"></kendo-label>
+                            <input formControlName="remark" class="form-control" maxlength="250" id="remark"
+                                type="text" kendoTextBox #remark  disabled />
+                        </kendo-formfield>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <!-- form body End -->
+        <!-- form Button start -->
+        <kendo-dialog-actions >
+            <button kendoButton 
+                (click)="updateFabricDetails()">{{ 'Save' | translate }}</button>
+            <button kendoButton (click)="onCloseFabric(false)"> {{ 'Cancel' | translate }} </button>
+        </kendo-dialog-actions>
+        <!-- form Button End -->
+    </kendo-dialog>
+</div>
+<!-- Kendo dialog End -->

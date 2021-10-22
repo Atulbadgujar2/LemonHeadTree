@@ -24,6 +24,7 @@ export namespace LocalFileContants {
     export const FiberType: string = 'Fiber Type';
     export const Supplier: string = 'Supplier';
     export const FiberComposition:string = 'Fiber Composition'
+    export const Fabric:string = 'Fabric'
 
   }
 
