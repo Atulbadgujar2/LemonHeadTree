@@ -1,5 +1,6 @@
 
 import {Routes, RouterModule} from '@angular/router';
+import { PreloadingstrategyService } from './core/misc/preloadingstrategy.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LeftNavTemplateComponent } from './template/left-nav-template.component';
 
@@ -77,4 +78,4 @@ export const routes: Routes = [
 //   exports: [RouterModule],
 //   declarations: []
 // })
-export const AppRoutingModule = RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }); 
+export const AppRoutingModule = RouterModule.forRoot(routes, {preloadingStrategy: PreloadingstrategyService, relativeLinkResolution: 'legacy' }); 
