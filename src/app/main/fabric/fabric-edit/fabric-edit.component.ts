@@ -74,11 +74,21 @@ public getFabricDetails() {
 setFormValue() {
   this.fabrics.patchValue({
     id: this.data.id,
-    paramCode: this.data.paramCode,
-    paramDescription: this.data.paramDescription,
-    paramType: this.data.paramType,
     status: this.data.status,
-    remark: this.data.remark
+    remark: this.data.remark,
+    supplierFabricName: this.data.supplierFabricName,
+    color: this.data.color,
+    preTreatmentType: this.data.preTreatmentType,
+    supplierFabricRef: this.data.supplierFabricRef,
+    itemCustomsCode: this.data.itemCustomsCode,
+    fabricWidthCM: this.data.fabricWidthCM,
+    fabricGSM: this.data.fabricGSM,
+    avgRollLength: this.data.avgRollLength,
+    refPriceListAttachment: this.data.refPriceListAttachment,
+    lhpFabricName: this.data.lhpFabricName,
+    fabricStatus: this.data.fabricStatus,
+    printTechOption : this.data.printTechOption
+    
 
   })
   // this.FabricModalData = this.FabricData;
