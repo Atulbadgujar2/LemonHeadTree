@@ -11,7 +11,9 @@
     "FiberComposition": "Fiber Composition",
     "WarehouseDetail": "Warehouse Detail",
     "contactDetail": "Contact Detail",
-    "Name": "Name"
+    "Name": "Name",
+    "CompositionPercent": "Composition Percent",
+    "Fibertype": "Fiber type"
     
 
     

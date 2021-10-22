@@ -3,7 +3,7 @@
     <kendo-dialog title="{{ 'FiberComposition' | translate }}" (close)="onCloseFiberComposition(false)" [width]="850"
         class="k-dialog-wrapper">
         <!-- form body start -->
-        <form [formGroup]="FiberCompositions">
+        <form [formGroup]="fiberCompositions">
             <div class="k-loading-panel" *ngIf="loadingPanelVisible">
                 <div class="k-loading-panel-mask"></div>
                 <kendo-loader [type]="'pulsing'" [themeColor]="'primary'" [size]="'large'">
@@ -20,7 +20,7 @@
                     <div class="col-md-6">
                         <kendo-formfield 
                             class="required">
-                            <kendo-label for="fibertype" text="{{ 'Fiber Type' | translate }}"></kendo-label>
+                            <kendo-label for="fibertype" text="{{ 'FiberType' | translate }}"></kendo-label>
                             <input formControlName="fibertype" class="form-control" maxlength="250" id="fibertype"
                                 type="text" kendoTextBox #fibertype required />
                         </kendo-formfield>
@@ -28,7 +28,7 @@
                     <div class="col-md-6">
                         <kendo-formfield 
                             class="required">
-                            <kendo-label for="compositionPercent" text="{{ 'Composition Percent' | translate }}"></kendo-label>
+                            <kendo-label for="compositionPercent" text="{{ 'CompositionPercent' | translate }}"></kendo-label>
                             <input formControlName="compositionPercent" class="form-control" maxlength="250" id="compositionPercent"
                                 type="text" kendoTextBox #compositionPercent required />
                         </kendo-formfield>

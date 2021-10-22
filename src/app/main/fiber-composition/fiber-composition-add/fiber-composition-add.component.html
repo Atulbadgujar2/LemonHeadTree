@@ -1,9 +1,9 @@
 <!-- Kendo dialog start -->
 <div class="example-wrapper">
-    <kendo-dialog title="{{ 'FiberType' | translate }}" (close)="onCloseFiberType(false)" [width]="850"
+    <kendo-dialog title="{{ 'FiberComposition' | translate }}" (close)="onCloseFiberComposition(false)" [width]="850"
         class="k-dialog-wrapper">
         <!-- form body start -->
-        <form [formGroup]="fiberType">
+        <form [formGroup]="fiberComposition">
             <fieldset class="k-form-fieldset mb-2 p-2">
                 <div class="form-row">
                     <!-- <div class="col-md-6">
@@ -16,27 +16,19 @@
                     <div class="col-md-6">
                         <kendo-formfield 
                             class="required">
-                            <kendo-label for="paramCode" text="{{ 'Param Code' | translate }}"></kendo-label>
-                            <input formControlName="paramCode" class="form-control" maxlength="250" id="paramCode"
-                                type="text" #paramCode kendoTextBox required />
+                            <kendo-label for="fibertype" text="{{ 'Fibertype' | translate }}"></kendo-label>
+                            <input formControlName="fibertype" class="form-control" maxlength="250" id="fibertype"
+                                type="text" #fibertype kendoTextBox required />
                         </kendo-formfield>
                     </div>
                     <div class="col-md-6">
                         <kendo-formfield 
                             class="required">
-                            <kendo-label for="paramDescription" text="{{ 'Param Descrition' | translate }}"></kendo-label>
-                            <input formControlName="paramDescription" class="form-control" maxlength="250" id="paramCode"
-                                type="text" #paramDescription kendoTextBox required />
+                            <kendo-label for="compositionPercent" text="{{ 'CompositionPercent' | translate }}"></kendo-label>
+                            <input formControlName="compositionPercent" class="form-control" maxlength="250" id="fibertype"
+                                type="text" #compositionPercent kendoTextBox required />
                         </kendo-formfield>
-                    </div>
-                    <div class="col-md-6">
-                        <kendo-formfield 
-                            class="required">
-                            <kendo-label for="paramType" text="{{ 'Param Type' | translate }}"></kendo-label>
-                            <input formControlName="paramType" class="form-control" maxlength="250" id="paramType"
-                                type="text" #paramType kendoTextBox required />
-                        </kendo-formfield>
-                    </div>
+                    </div>                   
                     <!-- <div class="col-md-6">
                         <kendo-formfield 
                             class="required">
@@ -60,10 +52,10 @@
         <!-- form Button start -->
         <kendo-dialog-actions >
             <button kendoButton
-                (click)="addFiberType()">{{ 'Save' | translate }}</button>
-            <button kendoButton (click)="onCloseFiberType(false)"> {{ 'Cancel' | translate }} </button>
+                (click)="addFiberComposition()">{{ 'Save' | translate }}</button>
+            <button kendoButton (click)="onCloseFiberComposition(false)"> {{ 'Cancel' | translate }} </button>
         </kendo-dialog-actions>
         <!-- form Button End -->
-    </kendo-dialog>
+    </kendo-dialog>    
 </div>
 <!-- Kendo dialog End -->
