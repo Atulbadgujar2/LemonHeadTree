@@ -25,7 +25,10 @@
     "RefPriceListAttachment": "Ref Price List Attachment",
     "LHPFabricName": "LHP Fabric Name",
     "FabricStatus": "Fabric Status",
-    "PrintTechOption": "Print Tech Option"
+    "PrintTechOption": "Print Tech Option",
+    "ParamCode": "Param Code",
+    "ParamDescription": "Param Description",
+    "ParamType": "Param Type"
 
     
     

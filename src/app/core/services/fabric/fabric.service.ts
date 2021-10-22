@@ -27,19 +27,19 @@ export class FabricService  extends BaseService {
 
   //To add Fiber Type details
 public addFabric(Fabric: FabricRequestModel): Observable<string> {
-    let url: string = environment.ServiceUrl + 'statparam'
+    let url: string = environment.ServiceUrl + 'fabric'
     return this.post<FabricRequestModel>(url, Fabric, null, "addFabric");
 }
 
 //  Delete Fiber Type.
 public deleteFabricById(Fabric: FabricRequestModel): Observable<string> {
-    let url: string = environment.ServiceUrl + 'statparam' 
+    let url: string = environment.ServiceUrl + 'fabric' 
     return this.delete(url, Fabric, "deleteFabric");
 }
 
   // Update Fiber Types Details 
 public updateFabricDetails(Fabric: FabricRequestModel): Observable<string> {
-    let url: string = environment.ServiceUrl + 'statparam'
+    let url: string = environment.ServiceUrl + 'fabric'
     return this.patch(url, Fabric, null, "updateFabricDetails");
 }
 }
