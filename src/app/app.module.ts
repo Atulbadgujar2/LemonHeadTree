@@ -19,6 +19,7 @@ import { HttpErrorHandlerService } from "./core/services/http-error-handler.serv
 import { PreloadingstrategyService } from "./core/misc/preloadingstrategy.service";
 import { DataSharingService } from "./core/services/shared/data.sharing.service";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -57,7 +58,8 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: createTranslateLoader,
         deps: [HttpClient]
       }
-    })
+    }),
+    NgbModule
 
     
   ],

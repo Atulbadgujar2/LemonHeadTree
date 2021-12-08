@@ -1,0 +1,140 @@
+<!-- Home Page  Start -->
+<div class="inner-wrapper height100p">
+
+    <div class="container-fluid height100p">
+        <!-- head Start -->
+        <div class="row page-head">
+            <div class="col-md-6">
+                <h3 class="heading">{{'dashboard' | translate}}</h3>
+            </div>
+        </div>
+        <!-- <div class="k-loading-panel" *ngIf="loadingPanelVisible">
+            <div class="k-loading-panel-mask "></div>
+            <kendo-loader [type]="'pulsing'" [themeColor]="'primary'" [size]="'large'">
+            </kendo-loader>
+        </div> -->
+        <div class="row mb-3 text-center tile">
+            <div class="col-xl-4 col-sm-7 py-2">
+                <div class="card text-white bg-info h-100">
+                    <div class="card-body bg-info">
+                        <h6 class="text-uppercase">{{ 'MyTotalProjects' | translate}}</h6>
+                        <h1 class="tileNUM pt-2">{{chartdetails.total}}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-sm-7 py-2">
+                <div class="card bg-success text-white h-100">
+                    <div class="card-body bg-success">
+                        <h6 class="text-uppercase">{{'ProjectInProgress' | translate}}</h6>
+                        <h3 class="tileNUM pt-2">{{chartdetails.inprogress}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-sm-7 py-2">
+                <div class="card text-white bg-danger h-100">
+                    <div class="card-body bg-danger">
+                        <h6 class="text-uppercase">{{ 'ProjectClosed' | translate}}</h6>
+                        <h3 class="tileNUM pt-2">{{chartdetails.closed}}</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                <div class="card gridCard">
+                    <div class="card-header text-center">
+                        {{'MyFavoritesProjects' | translate}}
+                    </div>
+                    <!-- <div>
+                        <td><input type="text" #moduleone /></td>
+                        <button (click)="submit(moduleone)">Send Data To Module 2</button>
+                    </div> -->
+                    <div class="card-body favourite bodyScroll">
+
+                    
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card gridCard">
+                    <div class="card-header text-center">
+                        {{'RecentProjectList'|translate}}
+                    </div>
+                    <div class="card-body ">
+                        <!--Recent Project list start -->
+                        
+                        <!--Recent Project list end -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card gridCard">
+                    <div class="card-header text-center">
+                        {{'CpmpanySummary' | translate}}
+                    </div>
+                    <div class="card-body bodyScroll">
+                       
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    Total
+                                </td>
+                                <td>
+                                    {{chartdetails.total}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Approved
+                                </td>
+                                <td>
+                                    {{chartdetails.opened}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Pending
+                                </td>
+                                <td>
+                                    {{chartdetails.pending}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    InProgress
+                                </td>
+                                <td>
+                                    {{chartdetails.inprogress}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Rejected
+                                </td>
+                                <td>
+                                    {{chartdetails.rejected}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Complete
+                                </td>
+                                <td>
+                                    {{chartdetails.closed}}
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Home Page End -->
