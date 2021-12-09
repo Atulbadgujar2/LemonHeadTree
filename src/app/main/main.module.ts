@@ -7,7 +7,7 @@ import { OrderComponent } from './order/order.component';
 
 
 @NgModule({
-  declarations: [OrderComponent],
+  declarations: [],
   imports: [
     CommonModule,
     MainRoutingModule

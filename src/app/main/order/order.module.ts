@@ -6,20 +6,25 @@ import { LabelModule } from '@progress/kendo-angular-label';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { FormsModule } from 'app/forms/forms.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OrderComponent } from './order.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { TrnaslateLazyModule } from 'app/core/modules/translate-lazy.module';
+import { SharedComponentModule } from 'app/shared/shared-component/shared-component.module';
+
 
 
 @NgModule({
-  declarations: [],
-  imports: [
-   
+  declarations: [OrderComponent],
+  imports: [   
     CommonModule,
+    SharedComponentModule,
+    TrnaslateLazyModule,
     OrderRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     InputsModule,
-    LabelModule,
+    LabelModule,    
+    TranslateModule.forChild(),
   ]
 })
 export class OrderModule { }
