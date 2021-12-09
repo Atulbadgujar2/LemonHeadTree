@@ -20,6 +20,8 @@ import { PreloadingstrategyService } from "./core/misc/preloadingstrategy.servic
 import { DataSharingService } from "./core/services/shared/data.sharing.service";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { InputsModule } from '@progress/kendo-angular-inputs';
+
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -59,7 +61,8 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    NgbModule
+    NgbModule,
+    InputsModule
 
     
   ],

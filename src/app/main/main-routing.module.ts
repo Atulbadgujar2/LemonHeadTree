@@ -60,6 +60,13 @@ const routes: Routes = [];
                                       title: 'Form Page'
                                     },
                                   },
+                                  {
+                                    path: 'order',
+                                    loadChildren: () => import('app/main/order/order.module').then(m => m.OrderModule),
+                                    data: {
+                                      title: 'Form Page'
+                                    },
+                                  },
          
 
           {
