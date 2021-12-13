@@ -121,10 +121,13 @@
                     </div>   
                     
                     <div class="col-md-3">
-                        <kendo-card width="226px" class="k-card-margin" >
+
                         
+                        <kendo-card width="226px" class="k-card-margin" >                           
+                            
                             <img [src]="cover" kendoCardMedia alt="cover_img" />
                             
+
                             <kendo-card-actions orientation="horizontal" layout="stretched">
                               <!-- <button class="k-button k-flat" (click)="toggleLike()">
                                 <span [ngClass]="heartIcon()"></span>
@@ -230,6 +233,18 @@
                            
                           </kendo-card>
                     </div> 
+
+                    <kendo-card-actions layout="center">
+                        <button class="k-button ">Add To Cart</button>
+                    </kendo-card-actions>
+
+                    <kendo-card-actions layout="center">
+                        <button class="k-button ">Preview Order Summary</button>
+                    </kendo-card-actions>
+
+                    <kendo-card-actions layout="center">
+                        <button class="k-button ">Checkout</button>
+                    </kendo-card-actions>
                     
                 </div>
 
