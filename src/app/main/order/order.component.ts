@@ -9,10 +9,13 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class OrderComponent implements OnInit {
 
      //form Group tittle
-     fiberType: FormGroup |any;
+     orderView: FormGroup |any;
+
+     //Modal to open View Order
+  public openViewOrderModal = false;
  
 
-  constructor(private formBuilder: FormBuilder,) { }
+  constructor(private formBuilder: FormBuilder) { }
 
   
   ngOnInit(): void {
@@ -21,9 +24,15 @@ export class OrderComponent implements OnInit {
 
   }
 
+   // function to open view  modal
+   onViewOrder() {
+    this.openViewOrderModal = true;
+    // this.renderer2.addClass(document.body, ModalCssConstants.ModalOpen);
+  }
+
   //form control function
   addFormControl() {
-    this.fiberType = this.formBuilder.group({
+    this.orderView = this.formBuilder.group({
       id: [''],     
       paramCode: [''],     
       paramDescription: [''],
@@ -48,6 +57,12 @@ export class OrderComponent implements OnInit {
 
   public heartIcon(): string {
     return this.liked ? "k-icon k-i-heart" : "k-icon k-i-heart-outline";
+  }
+
+  // function to close order modal
+  closeViewOrderModal(data: any) {
+    
+    this.openViewOrderModal = false;
   }
 
 }
