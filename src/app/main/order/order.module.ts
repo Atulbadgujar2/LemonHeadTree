@@ -12,6 +12,7 @@ import { TrnaslateLazyModule } from 'app/core/modules/translate-lazy.module';
 import { SharedComponentModule } from 'app/shared/shared-component/shared-component.module';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { OrderViewComponent } from './order-view/order-view.component';
+import { GridModule } from '@progress/kendo-angular-grid';
 
 
 
@@ -19,6 +20,7 @@ import { OrderViewComponent } from './order-view/order-view.component';
   declarations: [OrderComponent, OrderViewComponent],
   imports: [   
     CommonModule,
+    GridModule,
     SharedComponentModule,
     TrnaslateLazyModule,
     OrderRoutingModule,

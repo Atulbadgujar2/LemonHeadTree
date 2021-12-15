@@ -54,6 +54,47 @@ public onCloseOrder(flag: boolean) {
 
 }
 
+public gridData: any[] = [
+  {
+    ProductID: "Small Washbag",
+    ProductName: "Satin",
+    UnitPrice: 4,
+    Category: 4
+    // Category: {
+    //   CategoryID: 1,
+    //   CategoryName: "Beverages",
+    // },
+  },
+  {
+    ProductID: "EW Tote Bag",
+    ProductName: "Canvas",
+    UnitPrice: 5,
+    Category: 5
+    // Category: {
+    //   CategoryID: 1,
+    //   CategoryName: "Beverages",
+    // },
+  },
+  {
+    ProductID: "Tote bag Pocket",
+    ProductName: "Canvas",
+    UnitPrice: 7,
+    // Category: {
+    //   CategoryID: 2,
+    //   CategoryName: "Condiments",
+    // },
+  },
+  {
+    ProductID: "Frame Wallet",
+    ProductName: "Raso",
+    UnitPrice: 7,
+    // Category: {
+    //   CategoryID: 2,
+    //   CategoryName: "Condiments",
+    // },
+  },
+];
+
 
 
 }

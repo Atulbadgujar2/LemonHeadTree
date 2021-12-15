@@ -74,7 +74,7 @@
         <form [formGroup]="orderView">
             <fieldset class="k-form-fieldset mb-2 p-2">
                 <div class="form-row">
-                    <div class="col-md-3">
+                    <!-- <div class="col-md-3">
                         <kendo-formfield 
                             class="required">
                             <kendo-label for="id" text="{{ 'Products' | translate }}"></kendo-label>
@@ -104,7 +104,14 @@
                             <input formControlName="paramType" class="form-control" maxlength="250" id="paramType"
                                 type="text" #paramType kendoTextBox required />
                         </kendo-formfield>
-                    </div>  
+                    </div>   -->
+                    <kendo-grid [data]="gridData">
+                        <kendo-grid-column field="ProductID" title="Product Type"> </kendo-grid-column>
+                        <kendo-grid-column field="ProductName" title="Fabric Type"> </kendo-grid-column>
+                        <kendo-grid-column field="Category.CategoryName" title="Order Number">
+                        </kendo-grid-column>
+                        <kendo-grid-column field="UnitPrice" title="Quantity"> </kendo-grid-column>
+                      </kendo-grid>
                 </div>
 
             </fieldset>
